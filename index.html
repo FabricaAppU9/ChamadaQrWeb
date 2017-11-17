@@ -1,66 +1,111 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--Import Google Icon Font-->
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
-
-  <body style="background:rgb(253, 253, 253); margin:0px !important;">
-    <div class="row" style="position:absolute; width:100%; height:100%; z-index: 11; margin:0px !important">
-        <div class="col s6 m6 orange" style="height:100%; margin:0; color:aliceblue">
-           <div class="row">
-               <div class="col s12 m12">
-                    <div class="section" style="margin-top:20%">  
-                            <h1 class="center">Chamada QR</h1>
-                            <h3 class="center">Aplicativo para gerencimaneto e controle de chamadas</h3>
+   <head>
+      <!--Import Google Icon Font-->
+      <link rel="stylesheet" href="css/style.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+   <body style="background:orange">
+      <div class="row">
+            <!-- first section -->
+            <div class="col s12 m6">  <div>
+                    <div class="row">
+                        <div class="col s12" style="margin-top:20%">
+                                <h1 class="center">Chamada QR</h1>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col s12 center">
+                                <!--<div class="contenedor center">
+                                    <p>Você pode  <i class="small material-icons">chevron_right</i></p>
+                                    <ul>
+                                        <li> Gerenciar</li>
+                                        <li> Avaliar</li>
+                                        <li>  Criar</li>
+                                    </ul>
+                                </div> -->
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10%">
+                        <div class="col s12">
+                                <h5 style="color:white" class="center">Seus eventos, 
+                                        além de acompanhar o ritmo de chegada de seus alunos. Um Aplicativo pode te ajudar
+                                        durante seu evento.
+                                     </h5>
+                        </div>
+                        <div class="col s12">
+                                <div id="modal1" class="modal modal-fixed-footer" style="color:black">
+                                        <div class="modal-content">
+                                           <h4>Cadastro</h4>
+                                           <p>Faça o cadastro para utilizar a ferramenta</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                           <a href="#!" class="modal-action modal-close waves-effect waves-orange btn-flat ">Agree</a>
+                                        </div>
+                                     </div>
+                                     <div class="section center">
+                                        <a class="waves-effect waves-light btn white " style="color:orange; margin-top:10%";><i class="small  material-icons">android</i> Baixe o App </a>
+                                        <a class="waves-effect waves-light btn modal-trigger white" style="color:orange; margin-top:10%" href="#modal1">Criar Conta</a>                        
+                                     </div>
+                        </div>
+                    </div>
+                    <div class="row center" >
+                            <div class="col s12 center">
+                                    <h6 style="color:white">Deseja participar ? clique no botão abaixo. </h6>
+                                    <a href="http://fabricaappu9.com.br/"  >   <i class="small material-icons " style="color:white">person_add</i></a>
+                                    
+                            </div>
+                        </div>
+              </div>
+            </div>
+            <!-- segunda section -->
+            <div class="col s12 m6 white" style="padding-right:30px; padding-bottom:5%; margin-top:10%">
+                            
+                    <div class="col s12 center" style="margin-top:20%">
+                        <img src="img/logo.png" class="responsive-img">        
                     </div>
                     
-               </div>
-                   
-            </div>    
-            
-        </div>
-        <div class="col s6 m6 white" style="height:100%; margin:0;">
-            <div class="row">
-                <div class=" col s12 m12">
-                        <div class="col s12 center" style="margin-top:20%">
-                                <img src="img/logo.png" style="width:auto; height:auto;">        
-                        </div>
-                </div>
-                <div class="col s12 m12 white" style="color:orangered">
-                    <form class="login-form">
-                        <div class="row margin">
-                            <div class="input-field col s12 m12">
-                            <i class="mdi-social-person-outline prefix orange"></i>
-                            <input id="username" type="text">
-                            <label for="username" class="center-align orangered">Username</label>
+                    <div class="col s12 white center" style="color:orangered">
+                        <form class="login-form">
+                            <div class="row margin">
+                                <div class="input-field col s12 center">
+                                <i class="mdi-social-person-outline prefix orange"></i>
+                                <input id="username" type="text">
+                                <label for="username" class="center-align orangered">Username</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row margin">
-                            <div class="input-field col s12 m12">
-                            <i class="mdi-action-lock-outline prefix"></i>
-                            <input id="password" type="password">
-                            <label for="password">Password</label>
+                            <div class="row">
+                                <div class="input-field col s12 center">
+                                <i class="mdi-action-lock-outline prefix"></i>
+                                <input id="password" type="password">
+                                <label for="password">Password</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12 m12">
-                                <a  style="margin-left: 3rem; margin-right: 3rem;" class="btn waves-effect waves-light col s11 orange" onclick="login()">Login</a>
+                            <div class="row">
+                                <div class="input-field col s12 center">
+                                <a  style="margin-left: 3rem; margin-right: 6rem;" class="btn waves-effect waves-light col s11 orange" onclick="login()">Login</a>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
             </div>
+          </div>
+          
+<footer class="" style="margin-top:10%">
+          <div class="">
+            
+           <span style="font-size:10px; color:white; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">© 2017 Fabrica de Aplicativos UNINOVE</span> 
+            
+          </div>
+        </footer>
 
 
-        </div>
-    </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/authentication.js"></script>
-  </body>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/authentication.js"></script>
+   </body>
+   
 </html>

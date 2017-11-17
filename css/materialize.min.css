@@ -2437,7 +2437,6 @@ nav ul a span.badge {
  font-feature-settings:'liga'
 }
 .container {
- margin:0 auto;
  max-width:1280px;
  width:90%
 }
@@ -2469,9 +2468,8 @@ nav ul a span.badge {
  padding-top:0
 }
 .row {
- margin-left:auto;
- margin-right:auto;
- margin-bottom:20px
+
+ margin-bottom:0px
 }
 .row:after {
  content:"";
@@ -4420,7 +4418,7 @@ button.btn-floating {
 .modal .modal-footer .btn,.modal .modal-footer .btn-large,.modal .modal-footer .btn-flat {
  margin:6px 0
 }
-.modal-overlay {
+/*.modal-overlay {
  position:fixed;
  z-index:999;
  top:-25%;
@@ -4429,10 +4427,9 @@ button.btn-floating {
  right:0;
  height:125%;
  width:100%;
- background:#000;
  display:none;
  will-change:opacity
-}
+}*/
 .modal.modal-fixed-footer {
  padding:0;
  height:70%
