@@ -1,0 +1,11 @@
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\bin\Debug\netcoreapp2.0\ChamadaQrWebAPI.deps.json
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\bin\Debug\netcoreapp2.0\ChamadaQrWebAPI.runtimeconfig.json
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\bin\Debug\netcoreapp2.0\ChamadaQrWebAPI.runtimeconfig.dev.json
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\bin\Debug\netcoreapp2.0\ChamadaQrWebAPI.dll
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\obj\Debug\netcoreapp2.0\ChamadaQrWebAPI.csprojResolveAssemblyReference.cache
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\obj\Debug\netcoreapp2.0\ChamadaQrWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\obj\Debug\netcoreapp2.0\ChamadaQrWebAPI.AssemblyInfoInputs.cache
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\obj\Debug\netcoreapp2.0\ChamadaQrWebAPI.AssemblyInfo.cs
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\bin\Debug\netcoreapp2.0\ChamadaQrWebAPI.pdb
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\obj\Debug\netcoreapp2.0\ChamadaQrWebAPI.dll
+C:\Users\souza\Desktop\Projeto\ChamadaQrWebAPI\ChamadaQrWebAPI\obj\Debug\netcoreapp2.0\ChamadaQrWebAPI.pdb
