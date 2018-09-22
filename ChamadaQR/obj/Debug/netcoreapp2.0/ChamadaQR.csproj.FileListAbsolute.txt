@@ -26,3 +26,17 @@ C:\Users\evert\Desktop\FABRICA\ChamadaQR\ChamadaQR\obj\Debug\netcoreapp2.0\Chama
 C:\Users\evert\Desktop\FABRICA\ChamadaQR\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.csproj.CopyComplete
 C:\Users\evert\Desktop\FABRICA\ChamadaQR\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.dll
 C:\Users\evert\Desktop\FABRICA\ChamadaQR\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.pdb
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\bin\Debug\netcoreapp2.0\ChamadaQR.deps.json
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\bin\Debug\netcoreapp2.0\ChamadaQR.runtimeconfig.json
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\bin\Debug\netcoreapp2.0\ChamadaQR.runtimeconfig.dev.json
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\bin\Debug\netcoreapp2.0\ChamadaQR.dll
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\bin\Debug\netcoreapp2.0\ChamadaQR.pdb
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\bin\Debug\netcoreapp2.0\Modelo.dll
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\bin\Debug\netcoreapp2.0\Modelo.pdb
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.csprojResolveAssemblyReference.cache
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.csproj.CoreCompileInputs.cache
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.AssemblyInfoInputs.cache
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.AssemblyInfo.cs
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.csproj.CopyComplete
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.dll
+C:\Users\souza\Downloads\ChamadaQrWeb\ChamadaQR\obj\Debug\netcoreapp2.0\ChamadaQR.pdb

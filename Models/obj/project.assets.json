@@ -664,23 +664,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\evert\\.nuget\\packages\\": {},
+    "C:\\Users\\souza\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\evert\\Desktop\\FABRICA\\ChamadaQR\\Models\\Modelo.csproj",
+      "projectUniqueName": "C:\\Users\\souza\\Downloads\\ChamadaQrWeb\\Models\\Modelo.csproj",
       "projectName": "Modelo",
-      "projectPath": "C:\\Users\\evert\\Desktop\\FABRICA\\ChamadaQR\\Models\\Modelo.csproj",
-      "packagesPath": "C:\\Users\\evert\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\evert\\Desktop\\FABRICA\\ChamadaQR\\Models\\obj\\",
+      "projectPath": "C:\\Users\\souza\\Downloads\\ChamadaQrWeb\\Models\\Modelo.csproj",
+      "packagesPath": "C:\\Users\\souza\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\souza\\Downloads\\ChamadaQrWeb\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\evert\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\souza\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
