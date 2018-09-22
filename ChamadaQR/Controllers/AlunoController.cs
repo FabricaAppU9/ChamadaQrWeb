@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace ChamadaQR.Controllers
 {
@@ -31,8 +32,10 @@ namespace ChamadaQR.Controllers
         public IActionResult Create()
         {
             var Projetos = projetoDAL.ObterProjetosClassificadosPorNome().ToList();
-            Projetos.Insert(0, new Projeto() { ProjetoID = 0, Nome = "Selecione a instituição" });
+            Projetos.Insert(0, new Projeto() { ProjetoID = 0, ProjetoNome = "Selecione o projeto" });
             ViewBag.Projetos = Projetos;
+
+            ValidaStatus();
             return View();
         }
 
@@ -41,7 +44,7 @@ namespace ChamadaQR.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome, ProjetoID")] Aluno aluno)
+        public async Task<IActionResult> Create([Bind("AlunoID, Matricula, AlunoNome, Status, ProjetoID")] Aluno aluno)
         {
             try
             {
@@ -71,14 +74,14 @@ namespace ChamadaQR.Controllers
             {
                 return NotFound();
             }
-            ViewBag.Projetos = new SelectList(_context.Projetos.OrderBy(b => b.Nome), "ProjetoID", "Nome", aluno.ProjetoID);
-
+            ViewBag.Projetos = new SelectList(_context.Projetos.OrderBy(b => b.ProjetoNome), "ProjetoID", "ProjetoNome", aluno.ProjetoID);
+            //ViewBag.Alunos = new SelectList(_context.Alunos.OrderBy(a => a.AlunoID),"AlunoID","AlunoNome", aluno.Status.GetEnumerator(e));//typeof(Enum.eStatus));
             return View(aluno);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("AlunoID,Nome, ProjetoID")] Aluno aluno)
+        public async Task<IActionResult> Edit(long? id, [Bind("AlunoID, AlunoNome, Matricula, ProjetoID, ProjetoNome, Status")] Aluno aluno)
         {
             if (id != aluno.AlunoID)
             {
@@ -105,7 +108,7 @@ namespace ChamadaQR.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Projetos = new SelectList(_context.Projetos.OrderBy(b => b.Nome), "ProjetoID", "Nome", aluno.ProjetoID);
+            ViewBag.Projetos = new SelectList(_context.Projetos.OrderBy(b => b.ProjetoNome), "ProjetoID", "ProjetoNome", aluno.ProjetoID);
             return View(aluno);
         }
 
@@ -158,9 +161,18 @@ namespace ChamadaQR.Controllers
         {
             var aluno = await _context.Alunos.SingleOrDefaultAsync(m => m.AlunoID == id);
             _context.Alunos.Remove(aluno);
-            TempData["Message"] = "Aluno " + aluno.Nome.ToUpper() + " foi removido";
+            TempData["Message"] = "Aluno " + aluno.AlunoNome.ToUpper() + " foi removido";
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        private void ValidaStatus()
+        {
+            IList<string> s = new List<string>();
+            s.Add("ATIVO");
+            s.Add("INATIVO");
+            ViewBag.s = s;
+        }
+
     }
 }

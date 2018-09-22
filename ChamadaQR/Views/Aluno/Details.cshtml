@@ -9,33 +9,47 @@
 }
 
 <div class="card-block">
-    <div class="card-header text-white bg-secondary text-center h1">Exibindo uma aluno existente</div>
+    <div class="card-header text-white bg-secondary text-center h1">Exibindo um aluno existente</div>
     <div class="card-body">
         <div class="form-group">
-            <label asp-for="AlunoID" class="control-label"></label>
+
+            <label asp-for="Matricula" class="control-label"></label>
             <br />
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-key" aria-hidden="true"></i>
                 </span>
-                <input asp-for="AlunoID" class="form-control" disabled="disabled" />
+                <input asp-for="Matricula" class="form-control" disabled="disabled" />
             </div>
-            <label asp-for="Nome" class="control-label"></label>
+
+            <label asp-for="AlunoNome" class="control-label"></label>
             <br />
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                 </span>
-                <input asp-for="Nome" class="form-control" disabled="disabled" />
+                <input asp-for="AlunoNome" class="form-control" disabled="disabled" />
             </div>
-            <label asp-for="Projeto.Nome" class="control-label"></label>
+
+            <label asp-for="Status" class="control-label"></label>
             <br />
             <div class="input-group">
                 <span class="input-group-addon">
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
                 </span>
-                <input asp-for="Projeto.Nome" class="form-control" disabled="disabled" />
+                <input asp-for="Status" class="form-control" disabled="disabled" />
             </div>
+
+            <label asp-for="Projeto.ProjetoNome" class="control-label"></label>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-area-chart" aria-hidden="true"></i>
+                </span>
+                <input asp-for="Projeto.ProjetoNome" class="form-control" disabled="disabled" />
+            </div>
+
+
         </div>
     </div>
     <div class="card-footer bg-info text-center text-white">

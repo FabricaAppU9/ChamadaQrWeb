@@ -21,11 +21,11 @@
         <table id="tabela_projetos">
             <thead>
                 <tr>
-                    <th>
+                    @*<th>
                         @Html.DisplayNameFor(model => model.ProjetoID)
-                    </th>
+                    </th>*@
                     <th>
-                        @Html.DisplayNameFor(model => model.Nome)
+                        @Html.DisplayNameFor(model => model.ProjetoNome)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Endereco)
@@ -37,11 +37,11 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.ProjetoID)
-                        </td>
+                        </td>*@
                         <td>
-                            @Html.DisplayFor(modelItem => item.Nome)
+                            @Html.DisplayFor(modelItem => item.ProjetoNome)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Endereco)
@@ -57,7 +57,7 @@
         </table>
     </div>
     <div class="card-footer bg-success text-center">
-        <a asp-action="Create" class="btn-success">Criar um novo projeto</a>
+        <a asp-action="Create" class="btn-success">Cadastrar um novo projeto</a>
     </div>
 </div>
 

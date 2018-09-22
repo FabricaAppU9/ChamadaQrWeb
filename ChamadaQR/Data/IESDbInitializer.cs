@@ -7,7 +7,7 @@ namespace ChamadaQR.Data
     {
         public static void Initialize(IESContext context)
         {
-            //context.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             //Projetos
@@ -18,35 +18,15 @@ namespace ChamadaQR.Data
 
             var projetos = new Projeto[]
             {
-                new Projeto { Nome="ChamadaQR", Endereco="Vergueiro"},
-                new Projeto { Nome="Agendamentos", Endereco="Santo Amaro"}
+                new Projeto { ProjetoNome="ChamadaQR", Endereco="Vergueiro"},
+                new Projeto { ProjetoNome="Agendamentos", Endereco="Santo Amaro"}
             };
 
             foreach (Projeto p in projetos)
             {
                 context.Projetos.Add(p);
             }
-            context.SaveChanges();
-
-            //Presenca
-            if (context.Presencas.Any())
-            {
-                return;
-            }
-
-            var presencas = new Presenca[]
-            {
-                new Presenca { AlunoID = 1, CalendarioID = 1 },
-                new Presenca { AlunoID = 2, CalendarioID = 1 },
-                new Presenca { AlunoID = 3, CalendarioID = 1 },
-                new Presenca { AlunoID = 4, CalendarioID = 1 }
-            };
-
-            foreach (Presenca p in presencas)
-            {
-                context.Presencas.Add(p);
-            }
-            context.SaveChanges();
+            context.SaveChanges();            
 
             //Alunos
             if (context.Alunos.Any())
@@ -56,10 +36,10 @@ namespace ChamadaQR.Data
 
             var alunos = new Aluno[]
             {
-                new Aluno { Matricula = 2515201261, Nome="Primeiro Aluno", Status ="A", ProjetoID = 1 },
-                new Aluno { Matricula = 2515201262, Nome="Segundo Aluno", Status ="A", ProjetoID = 1 },
-                new Aluno { Matricula = 2515201263, Nome="Terceiro Aluno", Status ="A", ProjetoID = 2 },
-                new Aluno { Matricula = 2515201264, Nome="Quarto Aluno", Status ="A", ProjetoID = 2 }
+                new Aluno { Matricula = 2515201261, AlunoNome="Primeiro Aluno", Status ="ATIVO", ProjetoID = 1 },
+                new Aluno { Matricula = 2515201262, AlunoNome="Segundo Aluno", Status ="ATIVO", ProjetoID = 1 },
+                new Aluno { Matricula = 2515201263, AlunoNome="Terceiro Aluno", Status ="ATIVO", ProjetoID = 2 },
+                new Aluno { Matricula = 2515201264, AlunoNome="Quarto Aluno", Status ="ATIVO", ProjetoID = 2 }
             };
         
             foreach (Aluno a in alunos)
@@ -67,6 +47,27 @@ namespace ChamadaQR.Data
                 context.Alunos.Add(a);
             }
             context.SaveChanges();
+
+
+            //Professor
+            if (context.Professores.Any())
+            {
+                return;
+            }
+
+            var professor = new Professor[]
+            {
+                new Professor { Matricula = 2515201261, ProfessorNome="Primeiro Professor", Status ="ATIVO", ProjetoID = 1 },
+                new Professor { Matricula = 2515201262, ProfessorNome="Segundo Professor", Status ="ATIVO", ProjetoID = 2 }
+                
+            };
+
+            foreach (Professor a in professor)
+            {
+                context.Professores.Add(a);
+            }
+            context.SaveChanges();
+
 
             //Calendario
             if (context.Calendarios.Any())
@@ -76,12 +77,33 @@ namespace ChamadaQR.Data
 
             var calendario = new Calendario[]
             {
-                new Calendario { DataNome = "15/09/2018" }               
+                new Calendario { DataNome = "08/09/2018" },
+                new Calendario { DataNome = "14/09/2018" }
             };
 
             foreach (Calendario c in calendario)
             {
                 context.Calendarios.Add(c);
+            }
+            context.SaveChanges();
+
+            //Frequencia
+            if (context.Frequencias.Any())
+            {
+                return;
+            }
+
+            var frequencias = new Frequencia[]
+            {
+                new Frequencia { AlunoID = 1, DataID = 1, Presenca = "S" },
+                new Frequencia { AlunoID = 2, DataID = 1, Presenca = "S" },
+                new Frequencia { AlunoID = 3, DataID = 1, Presenca = "N", Justificativa = "Atestado Medico" },
+                new Frequencia { AlunoID = 4, DataID = 1, Presenca = "S" }
+            };
+
+            foreach (Frequencia p in frequencias)
+            {
+                context.Frequencias.Add(p);
             }
             context.SaveChanges();
         }

@@ -15,7 +15,7 @@
 }
 
 <div class="card-block">
-    <div class="card-header text-white bg-primary text-center h1">Alunos Registrados</div>
+    <div class="card-header text-white bg-primary text-center h1">Alunos Cadastrados</div>
     <div class="card-body">
         <table id="tabela_alunos">
             <thead>
@@ -27,10 +27,10 @@
                         @Html.DisplayNameFor(model => model.Matricula)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Nome)
+                        @Html.DisplayNameFor(model => model.AlunoNome)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Projeto.Nome)
+                        @Html.DisplayNameFor(model => model.Projeto.ProjetoNome)
                     </th>
                     <th></th>
                 </tr>
@@ -46,10 +46,10 @@
                         @Html.DisplayFor(modelItem => item.Matricula)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
+                        @Html.DisplayFor(modelItem => item.AlunoNome)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Projeto.Nome)
+                        @Html.DisplayFor(modelItem => item.Projeto.ProjetoNome)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.AlunoID">Edit</a> |
@@ -62,7 +62,7 @@
         </table>
     </div>
     <div class="card-footer bg-success text-center">
-        <a asp-action="Create" class="btn-success">Criar um novo aluno</a>
+        <a asp-action="Create" class="btn-success">Cadastrar um novo aluno</a>
     </div>
 </div>
 
