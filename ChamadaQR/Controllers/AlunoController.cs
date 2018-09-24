@@ -39,9 +39,7 @@ namespace ChamadaQR.Controllers
             return View();
         }
 
-        // POST: Projeto/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Projeto/Create       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Matricula, AlunoNome, Status, ProjetoID")] Aluno aluno)
@@ -75,7 +73,7 @@ namespace ChamadaQR.Controllers
                 return NotFound();
             }
             ViewBag.Projetos = new SelectList(_context.Projetos.OrderBy(b => b.ProjetoNome), "ProjetoID", "ProjetoNome", aluno.ProjetoID);
-            //ViewBag.Alunos = new SelectList(_context.Alunos.OrderBy(a => a.AlunoID),"AlunoID","AlunoNome", aluno.Status.GetEnumerator(e));//typeof(Enum.eStatus));
+            ValidaStatus();
             return View(aluno);
         }
 

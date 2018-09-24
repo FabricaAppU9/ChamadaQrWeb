@@ -22,12 +22,7 @@ namespace ChamadaQR.Controllers
             projetoDAL = new ProjetoDAL(context);
         }
 
-        // GET: Projeto
-        public async Task<IActionResult> Index()
-        {
-            return View(await projetoDAL.ObterProjetosClassificadosPorNome().ToListAsync());
-        }       
-
+       //Metodo de visualizacao por ID 
        private async Task<IActionResult> ObterVisaoProjetoPorId(long? id)
         {
             if (id == null)
@@ -41,6 +36,12 @@ namespace ChamadaQR.Controllers
             }
             return View(projeto);
         }
+
+        //GET:Projeto/Index/Detail/Edit/Delete
+        public async Task<IActionResult> Index()
+        {
+            return View(await projetoDAL.ObterProjetosClassificadosPorNome().ToListAsync());
+        }       
 
         public async Task<IActionResult> Detail(long? id)
         {
@@ -65,8 +66,10 @@ namespace ChamadaQR.Controllers
                 return NotFound();
             }
 
-            var projeto = await _context.Projetos.Include(d => d.Alunos).SingleOrDefaultAsync(m => m.ProjetoID == id);
-            //var projeto = await _context.Projetos.Where(i => i.ProjetoID == id).Include(d => d.Alunos).ToListAsync();
+            var projeto = 
+                await _context.Projetos.Include(d => d.Alunos)
+                .SingleOrDefaultAsync(m => m.ProjetoID == id);
+            
             if (projeto == null)
             {
                 return NotFound();
