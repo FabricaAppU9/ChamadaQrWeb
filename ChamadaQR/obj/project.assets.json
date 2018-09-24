@@ -12167,7 +12167,7 @@
       ]
     },
     "System.Security.Cryptography.Xml/4.4.2": {
-      "sha512": "1m+fKVrApgKYMRuE0MF0vGjqy4XqAp1rCtyAzMXhJajMDDytMh/rHk9hp4M7KKk3QQZoWJUvyUY7xcw74w+JiQ==",
+      "sha512": "q9Dren/YP5jhRCkDvLfuaPpMTQzP97ANvzq/OoGgwK8YdLRSTABS9oW5/23OKoM2DRCuBrh4qaecD2YNhPtuzQ==",
       "type": "package",
       "path": "system.security.cryptography.xml/4.4.2",
       "files": [
@@ -13360,23 +13360,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\souza\\.nuget\\packages\\": {},
+    "C:\\Users\\evert\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\souza\\Downloads\\ChamadaQrWeb\\ChamadaQR\\ChamadaQR.csproj",
+      "projectUniqueName": "C:\\Users\\evert\\Desktop\\FABRICAGIT\\ChamadaQR\\ChamadaQR.csproj",
       "projectName": "ChamadaQR",
-      "projectPath": "C:\\Users\\souza\\Downloads\\ChamadaQrWeb\\ChamadaQR\\ChamadaQR.csproj",
-      "packagesPath": "C:\\Users\\souza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\souza\\Downloads\\ChamadaQrWeb\\ChamadaQR\\obj\\",
+      "projectPath": "C:\\Users\\evert\\Desktop\\FABRICAGIT\\ChamadaQR\\ChamadaQR.csproj",
+      "packagesPath": "C:\\Users\\evert\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\evert\\Desktop\\FABRICAGIT\\ChamadaQR\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\souza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\evert\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13389,8 +13389,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\souza\\Downloads\\ChamadaQrWeb\\Models\\Modelo.csproj": {
-              "projectPath": "C:\\Users\\souza\\Downloads\\ChamadaQrWeb\\Models\\Modelo.csproj"
+            "C:\\Users\\evert\\Desktop\\FABRICAGIT\\Models\\Modelo.csproj": {
+              "projectPath": "C:\\Users\\evert\\Desktop\\FABRICAGIT\\Models\\Modelo.csproj"
             }
           }
         }
