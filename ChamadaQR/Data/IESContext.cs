@@ -26,7 +26,7 @@ namespace ChamadaQR.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Database=localdb;Data Source=127.0.0.1;User Id=azure;Password=6#vWHD_$");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=IESUtfpr;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
     }
 }
