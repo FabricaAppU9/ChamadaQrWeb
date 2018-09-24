@@ -44,7 +44,7 @@ namespace ChamadaQR.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AlunoID, Matricula, AlunoNome, Status, ProjetoID")] Aluno aluno)
+        public async Task<IActionResult> Create([Bind("Matricula, AlunoNome, Status, ProjetoID")] Aluno aluno)
         {
             try
             {

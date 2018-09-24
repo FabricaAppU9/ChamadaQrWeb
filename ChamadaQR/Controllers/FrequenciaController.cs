@@ -82,7 +82,7 @@ namespace ChamadaQR.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("Matricula,AlunoNome,DataNome,Presenca,Justificativa")] Frequencia frequencia)
+        public async Task<IActionResult> Edit(long? id, [Bind("FrequenciaID,PresensaID,AlunoID,DataID,Presenca,Justificativa")] Frequencia frequencia)
         {
             if (id != frequencia.FrequenciaID)
             {
@@ -132,7 +132,7 @@ namespace ChamadaQR.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AlunoID,DataID,Presenca,Justificativa")] Frequencia frequencia)
+        public async Task<IActionResult> Create([Bind("FrequenciaID,AlunoID,DataID,Presenca,Justificativa")] Frequencia frequencia)
         {
             try
             {

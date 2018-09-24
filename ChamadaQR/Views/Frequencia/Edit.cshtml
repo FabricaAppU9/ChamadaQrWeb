@@ -10,13 +10,14 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="FrequenciaID" />
             <div class="form-group">
+                <input type="hidden" asp-for="AlunoID" />
                 <label asp-for="Aluno.Matricula" class="control-label"></label>
-                <input asp-for="Aluno.Matricula" class="form-control" />
+                <input asp-for="Aluno.Matricula" class="form-control" disabled="disabled" />
                 <span asp-validation-for="Aluno.Matricula" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Aluno.AlunoNome" class="control-label"></label>
-                <input asp-for="Aluno.AlunoNome" class="form-control" />
+                <input asp-for="Aluno.AlunoNome" class="form-control" disabled="disabled" />
                 <span asp-validation-for="Aluno.AlunoNome" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -33,7 +34,7 @@
                 <span asp-validation-for="Justificativa" class="text-danger"></span>
             </div>
             <div class="form-group text-center h3">
-                <input type="submit" value="Atualizar Projeto" class="btn btn-primary" />
+                <input type="submit" value="Atualizar Presenca" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-warning">Retornar à listagem de presensas</a>
             </div>
         </form>
