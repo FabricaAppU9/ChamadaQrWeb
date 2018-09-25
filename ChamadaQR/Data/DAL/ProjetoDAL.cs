@@ -11,22 +11,26 @@ namespace ChamadaQR.Data.DAL
     {
         private IESContext _context;
 
+        //Configuracoes do contexto
         public ProjetoDAL(IESContext context)
         {
             _context = context;
         }
 
+        //Obter Classificacao por Nome
         public IQueryable<Projeto> ObterProjetosClassificadosPorNome()
         {
             return _context.Projetos.OrderBy(b => b.ProjetoNome);
         }
 
+        //Obter Classificacao por ID
         public async Task<Projeto> ObterProjetoPorId(long id)
         {
             return await _context.Projetos.Include(d => d.Alunos)
                 .SingleOrDefaultAsync(m => m.ProjetoID == id);
         }
 
+        //Gravar
         public async Task<Projeto> GravarProjeto(Projeto projeto)
         {
             if (projeto.ProjetoID == null)
@@ -41,6 +45,7 @@ namespace ChamadaQR.Data.DAL
             return projeto;
         }
 
+        //Deletar
         public async Task<Projeto> EliminaProjetoPorId(long id)
         {
             Projeto projeto = await ObterProjetoPorId(id);

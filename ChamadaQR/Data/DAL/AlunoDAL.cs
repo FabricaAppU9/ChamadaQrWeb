@@ -11,16 +11,19 @@ namespace ChamadaQR.Data.DAL
     {
         private IESContext _context;
 
+        //Configuracoes do contexto
         public AlunoDAL(IESContext context)
         {
             _context = context;
         }
 
+        //Obter Classificacao por Nome
         public IQueryable<Aluno> ObterAlunosClassificadosPorNome()
         {
             return _context.Alunos.Include(i => i.Projeto).OrderBy(b => b.AlunoNome);
         }
 
+        //Obter Classificacao por ID
         public async Task<Aluno> ObterAlunoPorId(long id)
         {
             var aluno = await _context.Alunos.SingleOrDefaultAsync(m => m.AlunoID == id);
@@ -28,6 +31,7 @@ namespace ChamadaQR.Data.DAL
             return aluno;
         }
 
+        //Gravar
         public async Task<Aluno> GravarAluno(Aluno aluno)
         {
             if (aluno.AlunoID == null)
@@ -42,6 +46,7 @@ namespace ChamadaQR.Data.DAL
             return aluno;
         }
 
+        //Deletar
         public async Task<Aluno> EliminarAlunoPorId(long id)
         {
             Aluno aluno = await ObterAlunoPorId(id);

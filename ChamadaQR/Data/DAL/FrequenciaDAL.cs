@@ -11,19 +11,22 @@ namespace ChamadaQR.Data.DAL
     {
         private IESContext _context;
 
+        //Configuracoes do contexto
         public FrequenciaDAL(IESContext context)
         {
             _context = context;
         }
 
+        //Obter Classificacao por Nome
         public IQueryable<Frequencia> ObterFrequenciasClassificadasPorNome()
         {
             return _context.Frequencias.Include(c => c.Calendario)
                                        .Include(a => a.Aluno)                                    
                                        .OrderBy(i => i.Aluno.AlunoNome);
         }
-      
-       public async Task<Frequencia>ObterFrequenciaPorID(long id)
+
+        //Obter Classificacao por ID
+        public async Task<Frequencia>ObterFrequenciaPorID(long id)
         {
             //var frequencia = await _context.Frequencias.SingleOrDefaultAsync(p => p.FrequenciaID == id);
             //_context.Calendarios.Where(p => frequencia.DataID == p.DataID).Load(); ;
@@ -34,6 +37,7 @@ namespace ChamadaQR.Data.DAL
             return frequencia;
         }
 
+        //Gravar
         public async Task<Frequencia> GravarFrequencia(Frequencia frequencia)
         {                    
             _context.Frequencias.Add(frequencia);           
@@ -41,6 +45,7 @@ namespace ChamadaQR.Data.DAL
             return frequencia;
         }
 
+        //Gravar/Atualizar
         public async Task<Frequencia> AtualizarFrequencia(Frequencia frequencia)
         {           
             _context.Update(frequencia);            
@@ -48,6 +53,7 @@ namespace ChamadaQR.Data.DAL
             return frequencia;
         }
 
+        //Deletar
         public async Task<Frequencia> EliminarFrequenciaPorId(long id)
         {
             Frequencia frequencia = await ObterFrequenciaPorID(id);
