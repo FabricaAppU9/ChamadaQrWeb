@@ -15,76 +15,59 @@ namespace ChamadaQR.Controllers
         private readonly IESContext _context;
         private readonly AlunoDAL alunoDAL;
         private readonly ProjetoDAL projetoDAL;
-
+        
+        //Configuracoes do contexto
         public AlunoController(IESContext context)
         {
-            this._context = context;
+            _context = context;
             projetoDAL = new ProjetoDAL(context);
             alunoDAL = new AlunoDAL(context);
         }
 
+        //VisaoPorID
+        private async Task<IActionResult> ObterVisaoAlunosPorId(long? id)
+        {
+            if (id == null)            
+                return NotFound();
+            
+            var aluno = await alunoDAL.ObterAlunoPorId((long)id);
+
+            if (aluno == null)            
+                return NotFound();
+            
+            ViewBag.Projetos =
+                new SelectList(_context.Projetos.OrderBy(b => b.ProjetoNome), "ProjetoID", "ProjetoNome", aluno.ProjetoID);
+
+            ValidaStatus();
+
+            return View(aluno);
+        }
+
+        //GET: Aluno/Index
         public async Task<IActionResult> Index()
         {
             return View(await alunoDAL.ObterAlunosClassificadosPorNome().ToListAsync());
         }
 
-        // GET: Aluno/Create
-        public IActionResult Create()
+        //GET: Aluno/Edit    
+        public async Task<IActionResult> Edit(long id)
         {
-            var Projetos = projetoDAL.ObterProjetosClassificadosPorNome().ToList();
-            Projetos.Insert(0, new Projeto() { ProjetoID = 0, ProjetoNome = "Selecione o projeto" });
-            ViewBag.Projetos = Projetos;
-
-            ValidaStatus();
-            return View();
+            return await ObterVisaoAlunosPorId(id);
         }
 
-        // POST: Projeto/Create       
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Matricula, AlunoNome, Status, ProjetoID")] Aluno aluno)
+        //GET: Aluno/Details
+        public async Task<IActionResult> Details(long? id)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    await alunoDAL.GravarAluno(aluno);
-                    return RedirectToAction(nameof(Index));
-                }
-            }
-            catch (DbUpdateException)
-            {
-                ModelState.AddModelError("", "Não foi possível inserir os dados.");
-            }
-            return View(aluno);
+            return await ObterVisaoAlunosPorId(id);
         }
-
-        // GET: Aluno/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var aluno = await _context.Alunos.SingleOrDefaultAsync(m => m.AlunoID == id);
-            if (aluno == null)
-            {
-                return NotFound();
-            }
-            ViewBag.Projetos = new SelectList(_context.Projetos.OrderBy(b => b.ProjetoNome), "ProjetoID", "ProjetoNome", aluno.ProjetoID);
-            ValidaStatus();
-            return View(aluno);
-        }
-
+        
+        //POST: Aluno/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("AlunoID, AlunoNome, Matricula, ProjetoID, ProjetoNome, Status")] Aluno aluno)
         {
-            if (id != aluno.AlunoID)
-            {
-                return NotFound();
-            }
+            if (id != aluno.AlunoID)            
+                return NotFound();            
 
             if (ModelState.IsValid)
             {
@@ -105,35 +88,43 @@ namespace ChamadaQR.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewBag.Projetos = new SelectList(_context.Projetos.OrderBy(b => b.ProjetoNome), "ProjetoID", "ProjetoNome", aluno.ProjetoID);
+            }           
             return View(aluno);
         }
 
-        private bool AlunoExists(long? id)
+        //GET: Aluno/Create
+        public IActionResult Create()
         {
-            return _context.Alunos.Any(e => e.AlunoID == id);
-        }
+            var Projetos = projetoDAL.ObterProjetosClassificadosPorNome().ToList();
 
-        public async Task<IActionResult> Details(long? id)
+            Projetos.Insert(0, new Projeto() { ProjetoID = 0, ProjetoNome = "Selecione o projeto" });
+            ViewBag.Projetos = Projetos;
+
+            ValidaStatus();
+            return View();
+        }       
+
+        //POST: Aluno/Create       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Matricula, AlunoNome, Status, ProjetoID")] Aluno aluno)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
+                if (ModelState.IsValid)
+                {
+                    await alunoDAL.GravarAluno(aluno);
+                    return RedirectToAction(nameof(Index));
+                }
             }
-
-            var aluno = await _context.Alunos
-                .SingleOrDefaultAsync(m => m.AlunoID == id);
-            _context.Projetos.Where(i => aluno.ProjetoID == i.ProjetoID).Load(); ;
-            if (aluno == null)
+            catch (DbUpdateException)
             {
-                return NotFound();
+                ModelState.AddModelError("", "Não foi possível inserir os dados.");
             }
-
             return View(aluno);
         }
-
-        // GET: Projeto/Delete/5
+       
+        //GET: Aluno/Delete
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -152,7 +143,7 @@ namespace ChamadaQR.Controllers
             return View(aluno);
         }
 
-        // POST: Projeto/Delete/5
+        //POST: Aluno/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id)
@@ -164,6 +155,12 @@ namespace ChamadaQR.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //Outros Metodos
+        private bool AlunoExists(long? id)
+        {
+            return _context.Alunos.Any(e => e.AlunoID == id);
+        }
+
         private void ValidaStatus()
         {
             IList<string> s = new List<string>();
@@ -171,6 +168,5 @@ namespace ChamadaQR.Controllers
             s.Add("INATIVO");
             ViewBag.s = s;
         }
-
     }
 }

@@ -16,77 +16,82 @@ namespace ChamadaQR.Controllers
         private readonly IESContext _context;
         private readonly ProjetoDAL projetoDAL;
 
+        //Configuracoes do contexto
         public ProjetoController(IESContext context)
         {
             _context = context;
             projetoDAL = new ProjetoDAL(context);
         }
 
-       //Metodo de visualizacao por ID 
-       private async Task<IActionResult> ObterVisaoProjetoPorId(long? id)
+        //VisaoPorID
+        private async Task<IActionResult> ObterVisaoProjetoPorId(long? id)
         {
-            if (id == null)
-            {
+            if (id == null)            
                 return NotFound();
-            }
+            
             var projeto = await projetoDAL.ObterProjetoPorId((long)id);
-            if (projeto == null)
-            {
+
+            if (projeto == null)            
                 return NotFound();
-            }
+            
             return View(projeto);
         }
 
-        //GET:Projeto/Index/Detail/Edit/Delete
+        //GET: Projeto/Index
         public async Task<IActionResult> Index()
         {
             return View(await projetoDAL.ObterProjetosClassificadosPorNome().ToListAsync());
         }       
 
-        public async Task<IActionResult> Detail(long? id)
-        {
-            return await ObterVisaoProjetoPorId(id);
-        }
-
+        //GET: Projeto/Edit
         public async Task<IActionResult> Edit(long id)
         {
             return await ObterVisaoProjetoPorId(id);
         }
 
-        public async Task<IActionResult> Delete(long? id)
+        //GET: Projeto/Details
+        public async Task<IActionResult> Details(long? id)
         {
             return await ObterVisaoProjetoPorId(id);
         }
         
-        // GET: Projeto/Details/5
-        public async Task<IActionResult> Details(long? id)
+        //POST: Projeto/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(long? id, [Bind("ProjetoID,ProjetoNome,Endereco")] Projeto projeto)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id != projeto.ProjetoID)            
+                return NotFound();            
 
-            var projeto = 
-                await _context.Projetos.Include(d => d.Alunos)
-                .SingleOrDefaultAsync(m => m.ProjetoID == id);
-            
-            if (projeto == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                try
+                {
+                    await projetoDAL.GravarProjeto(projeto);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!await ProjetoExists(projeto.ProjetoID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
             }
-
             return View(projeto);
         }
 
-        // GET: Projeto/Create
+        //GET: Projeto/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Projeto/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //POST: Projeto/Create        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProjetoNome,Endereco")] Projeto projeto)
@@ -105,43 +110,14 @@ namespace ChamadaQR.Controllers
             }
             return View(projeto);
         }
-      
 
-        // POST: Projeto/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("ProjetoID,ProjetoNome,Endereco")] Projeto projeto)
+        //GET: Projeto/Delete
+        public async Task<IActionResult> Delete(long? id)
         {
-            if (id != projeto.ProjetoID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    await projetoDAL.GravarProjeto(projeto);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (! await ProjetoExists(projeto.ProjetoID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(projeto);
-        }      
-
-        // POST: Projeto/Delete/5
+            return await ObterVisaoProjetoPorId(id);
+        }
+              
+        //POST: Projeto/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id)
@@ -152,6 +128,7 @@ namespace ChamadaQR.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //Outros Metodos
         private async Task<bool> ProjetoExists(long? id)
         {
             return await projetoDAL.ObterProjetoPorId((long)id) != null;

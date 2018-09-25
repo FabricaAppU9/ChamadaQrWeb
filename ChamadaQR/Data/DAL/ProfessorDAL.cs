@@ -19,6 +19,7 @@ namespace ChamadaQR.Data.DAL
         public IQueryable<Professor> ObterProfessoresClassificadosPorNome()
         {
             return _context.Professores.Include(i => i.Projeto).OrderBy(b => b.ProfessorNome);
+         
         }
 
         public async Task<Professor> ObterProfessorPorId(long id)
@@ -28,5 +29,18 @@ namespace ChamadaQR.Data.DAL
             return professor;
         }
 
+        public async Task<Professor> GravarProfessor(Professor professor)
+        {
+            if (professor.ProfessorID == null)
+            {
+                _context.Professores.Add(professor);
+            }
+            else
+            {
+                _context.Update(professor);
+            }
+            await _context.SaveChangesAsync();
+            return professor;
+        }
     }
 }

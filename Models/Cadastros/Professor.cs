@@ -8,7 +8,7 @@ namespace Modelo.Cadastros
     public class Professor
     {
         [Key]
-        public int ProfessorID { get; set; }
+        public long? ProfessorID { get; set; }
         public long Matricula { get; set; }
         public string ProfessorNome { get; set; }
         public string Status { get; set; }

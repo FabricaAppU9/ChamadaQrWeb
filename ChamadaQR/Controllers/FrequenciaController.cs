@@ -15,79 +15,61 @@ namespace ChamadaQR.Controllers
     {
         private readonly IESContext _context;
         private readonly FrequenciaDAL frequenciaDAL;
-        private readonly AlunoDAL alunoDAL;
-        private readonly ProjetoDAL projetoDAL;
         private readonly CalendarioDAL calendarioDAL;
+        private readonly AlunoDAL alunoDAL;
 
+        //Configuracoes do contexto
         public FrequenciaController(IESContext context)
         {
             _context = context;
             frequenciaDAL = new FrequenciaDAL(context);
-            alunoDAL = new AlunoDAL(context);
             calendarioDAL = new CalendarioDAL(context);
+            alunoDAL = new AlunoDAL(context);            
         }
 
-        //GET: Frequencia
+        //VisaoPorID
+        private async Task<IActionResult> ObterVisaoFrequenciaPorId(long? id)
+        {
+            if (id == null)            
+                return NotFound();
+            
+            var frequencia = await frequenciaDAL.ObterFrequenciaPorID((long)id);
+
+            if (frequencia == null)            
+                return NotFound();
+            
+            ViewBag.Calendarios =
+                new SelectList(_context.Calendarios.OrderBy(c => c.DataNome), "DataID", "DataNome", frequencia.DataID);
+
+            ValidaPresenca();
+            return View(frequencia);
+        }
+                
+        //GET: Frequencia/Index
         public async Task<IActionResult> Index()
         {
             return View(await frequenciaDAL.ObterFrequenciasClassificadasPorNome().ToListAsync());
         }
 
-        private async Task<IActionResult> ObterVisaoFrequenciaPorId(long? id)
+        //GET: Frequencia/Edit
+        public async Task<IActionResult> Edit(long id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var frequencia = await frequenciaDAL.ObterFrequenciaPorID((long)id);
-
-            if (frequencia == null)
-            {
-                return NotFound();
-            }
-            return View(frequencia);
+            return await ObterVisaoFrequenciaPorId(id);
         }
-        //GET: Details
+
+        //GET: Frequencia/Details
         public async Task<IActionResult> Details(long? id)
         {
             return await ObterVisaoFrequenciaPorId(id);
         }
-
-        public async Task<IActionResult> Delete(long? id)
-        {
-            return await ObterVisaoFrequenciaPorId(id);
-        }
-
-        //GET: Frequencia
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var frequencia =
-                await _context.Frequencias.Include(a => a.Aluno).Include(c => c.Calendario)
-                                           .SingleOrDefaultAsync(f => f.FrequenciaID == id);
-
-            if (frequencia == null)
-            {
-                return NotFound();
-            }
-            ViewBag.Calendarios = new SelectList(_context.Calendarios.OrderBy(c => c.DataNome), "DataID", "DataNome", frequencia.DataID);
-            ValidaPresenca();
-            return View(frequencia);
-        }
-
-
+        
+        //POST: Frequencia/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long? id, [Bind("FrequenciaID,PresensaID,AlunoID,DataID,Presenca,Justificativa")] Frequencia frequencia)
         {
-            if (id != frequencia.FrequenciaID)
-            {
-                return NotFound();
-            }
+            if (id != frequencia.FrequenciaID)            
+                return NotFound();            
 
             if (ModelState.IsValid)
             {
@@ -107,13 +89,11 @@ namespace ChamadaQR.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ValidaPresenca();
+            }           
             return View(frequencia);
         }
 
-
-        //Get:Frequencia Create
+        //GET: Frequencia/Create
         public IActionResult Create()
         {
             var Alunos = alunoDAL.ObterAlunosClassificadosPorNome().ToList();
@@ -129,7 +109,7 @@ namespace ChamadaQR.Controllers
             return View();
         }
 
-
+        //POST: Frequencia/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FrequenciaID,AlunoID,DataID,Presenca,Justificativa")] Frequencia frequencia)
@@ -149,7 +129,13 @@ namespace ChamadaQR.Controllers
             return View(frequencia);
         }
 
-        // POST: Projeto/Delete/5
+        //GET: Frequencia/Delete    
+        public async Task<IActionResult> Delete(long? id)
+        {
+            return await ObterVisaoFrequenciaPorId(id);
+        }
+
+        //POST: Frequencia/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id)
@@ -161,11 +147,11 @@ namespace ChamadaQR.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //Outros Metodos
         private async Task<bool> FrequenciaExists(long? id)
         {
             return await frequenciaDAL.ObterFrequenciaPorID((long)id) != null;
         }
-
 
         private void ValidaPresenca()
         {
