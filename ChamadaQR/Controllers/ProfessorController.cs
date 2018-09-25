@@ -126,6 +126,24 @@ namespace ChamadaQR.Controllers
             return View(professor);
         }
 
+        //GET: Professor/Delete
+        public async Task<IActionResult> Delete(long? id)
+        {
+            return await ObterVisaoProfessorPorId(id);           
+        }
+
+        //POST: Professor/Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(long? id)
+        {
+            var professor = await _context.Professores.SingleOrDefaultAsync(m => m.ProfessorID == id);
+            _context.Professores.Remove(professor);
+            TempData["Message"] = "Professor " + professor.ProfessorNome.ToUpper() + " foi removido";
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
         //Outros Metodos
         private bool ProfessorExists(long? id)
         {

@@ -127,18 +127,15 @@ namespace ChamadaQR.Controllers
         //GET: Aluno/Delete
         public async Task<IActionResult> Delete(long? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null)            
+                return NotFound();            
 
             var aluno = await _context.Alunos
                 .SingleOrDefaultAsync(m => m.AlunoID == id);
             _context.Projetos.Where(i => aluno.ProjetoID == i.ProjetoID).Load(); ;
-            if (aluno == null)
-            {
-                return NotFound();
-            }
+
+            if (aluno == null)            
+                return NotFound();            
 
             return View(aluno);
         }
