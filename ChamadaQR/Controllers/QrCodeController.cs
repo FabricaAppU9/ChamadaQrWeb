@@ -11,15 +11,17 @@ namespace ChamadaQR.Controllers
 {
     
     public class QrCodeController : Controller
-    {       
+    {
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Generate(string productId)
+        public IActionResult Generate()
         {
-            ViewBag.productId = productId;
+            string data = DateTime.Today.ToString("dd/MM/yyyy");
+            ViewBag.data = data;
+
             return View("Index");
         }
 

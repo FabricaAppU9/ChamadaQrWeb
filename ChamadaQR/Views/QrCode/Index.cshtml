@@ -3,40 +3,26 @@
     Layout = "_LayoutIES";
 }
 @section styles {
-    @*    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" />*@
     <link rel="stylesheet" href="~/lib/datatables/media/css/jquery.dataTables.min.css" />
 }
-@if (@TempData["Message"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        @TempData["Message"]
+
+<div class="card-title">
+    <div class="card-header text-white bg-primary text-center h1">Gerador de Qr Code para presenca</div>
+    <div class="card-columns">
+        <table>          
+            <tr>             
+                <th>
+                    @if (@ViewBag.data != null)
+                    {
+                        <qrcode content="@ViewBag.data" width="250 " height="250"></qrcode>
+                    }
+                </th>
+            </tr>
+        </table>
     </div>
-}
-
-<div class="card-block">
-    <div class="card-header text-white bg-primary text-center h1">ChamadaQR Code</div>
+    <div class="card-footer bg-success text-center">
+        <form method="post" asp-controller="qrcode" asp-action="generate"></form>
+        <a asp-action="Generate" class="btn-success">Gerar</a>
+    </div>
 </div>
-
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-    <br />
-    <form method="post" asp-controller="qrcode" asp-action="generate">
-        <input type="text" placeholder="Product Id" name="productId" value="@ViewBag.productId" />
-        <input type="submit" value="Generate" />
-    </form>
-
-
-    @if (@ViewBag.productId != null)
-    {
-        <qrcode content="@ViewBag.productId" width="200 " height="200"></qrcode>
-        
-    }
- 
-</body>
-</html>
-
-
 

@@ -31,7 +31,7 @@ namespace ChamadaQC
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Demo}/{action=Index}/{id?}");
+                    template: "{controller=QrCode}/{action=Index}/{id?}");
             });
         }
     }

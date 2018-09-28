@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <br />
+    <form method="post" asp-controller="qrcode" asp-action="generate">
+        @*<input type="text" placeholder="Password" name="senha" value="@ViewBag.data" />*@
+        <input type="submit" value="Generate" />
+    </form>
+
+
+    @if (@ViewBag.data != null)
+    {
+        <qrcode content="@ViewBag.data" width="200 " height="200"></qrcode>
+
+    }
+</body>
+</html>
