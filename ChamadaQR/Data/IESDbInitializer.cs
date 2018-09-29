@@ -103,7 +103,7 @@ namespace ChamadaQR.Data
             
             var qrcodes = new Qrcode[]
             {
-                new Qrcode { QrCodeID = 1, Validacao = "@teste" }                
+                new Qrcode { Validacao = "testeDeCodigoParaValidacao" }                
             };
 
             foreach (Qrcode q in qrcodes)
