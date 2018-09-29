@@ -7,14 +7,12 @@ namespace ChamadaQR.Data
     {
         public static void Initialize(IESContext context)
         {
-            //context.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             //Projetos
-            if (context.Projetos.Any())
-            {
-                return;
-            }
+            if (context.Projetos.Any())            
+                return;            
 
             var projetos = new Projeto[]
             {
@@ -29,10 +27,8 @@ namespace ChamadaQR.Data
             context.SaveChanges();            
 
             //Alunos
-            if (context.Alunos.Any())
-            {
-                return;
-            }
+            if (context.Alunos.Any())            
+                return;            
 
             var alunos = new Aluno[]
             {
@@ -50,10 +46,8 @@ namespace ChamadaQR.Data
 
 
             //Professor
-            if (context.Professores.Any())
-            {
-                return;
-            }
+            if (context.Professores.Any())            
+                return;            
 
             var professor = new Professor[]
             {
@@ -70,10 +64,8 @@ namespace ChamadaQR.Data
 
 
             //Calendario
-            if (context.Calendarios.Any())
-            {
-                return;
-            }
+            if (context.Calendarios.Any())            
+                return;            
 
             var calendario = new Calendario[]
             {
@@ -88,11 +80,9 @@ namespace ChamadaQR.Data
             context.SaveChanges();
 
             //Frequencia
-            if (context.Frequencias.Any())
-            {
+            if (context.Frequencias.Any())            
                 return;
-            }
-
+            
             var frequencias = new Frequencia[]
             {
                 new Frequencia { AlunoID = 1, DataID = 1, Presenca = "S" },
@@ -104,6 +94,21 @@ namespace ChamadaQR.Data
             foreach (Frequencia p in frequencias)
             {
                 context.Frequencias.Add(p);
+            }
+            context.SaveChanges();
+
+            //Qrcode
+            if (context.Qrcodes.Any())
+                return;
+            
+            var qrcodes = new Qrcode[]
+            {
+                new Qrcode { QrCodeID = 1, Validacao = "@teste" }                
+            };
+
+            foreach (Qrcode q in qrcodes)
+            {
+                context.Qrcodes.Add(q);
             }
             context.SaveChanges();
         }

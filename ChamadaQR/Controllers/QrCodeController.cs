@@ -12,18 +12,14 @@ namespace ChamadaQR.Controllers
     
     public class QrCodeController : Controller
     {
+        private readonly IESContext _context;
+        private readonly QrcodeDAL qrcodeDAL;
+
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Generate()
-        {
             string data = DateTime.Today.ToString("dd/MM/yyyy");
-            ViewBag.data = data;
-
-            return View("Index");
-        }
-
+            ViewBag.data = data.GetHashCode();
+            return View();
+        }        
     }
 }

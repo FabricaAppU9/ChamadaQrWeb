@@ -13,6 +13,7 @@ namespace ChamadaQR.Data
         public DbSet<Frequencia> Frequencias { get; set; }
         public DbSet<Calendario> Calendarios { get; set; }
         public DbSet<Professor> Professores { get; set; }
+        public DbSet<Qrcode> Qrcodes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,7 @@ namespace ChamadaQR.Data
             modelBuilder.Entity<Frequencia>().ToTable("Frequencia");
             modelBuilder.Entity<Calendario>().ToTable("Calendario");
             modelBuilder.Entity<Professor>().ToTable("Professor");
+            modelBuilder.Entity<Qrcode>().ToTable("Qrcode");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

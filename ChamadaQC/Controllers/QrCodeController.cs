@@ -17,8 +17,10 @@ namespace ChamadaQC.Controllers
 
         public IActionResult Generate()
         {
-            string data = DateTime.Today.ToString("dd/MM/yyyy");            
-            ViewBag.data = data;
+            string senha = "@teste";
+            string data = DateTime.Today.ToString("dd/MM/yyyy");
+            string dataComposta = data + ";" + senha;
+            ViewBag.data = dataComposta.GetHashCode();
 
             return View("Index");
         }
