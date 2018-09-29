@@ -34,3 +34,12 @@ C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.Assembly
 C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.AssemblyInfo.cs
 C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.dll
 C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.pdb
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\bin\Debug\netcoreapp2.0\Modelo.deps.json
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\bin\Debug\netcoreapp2.0\Modelo.dll
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\bin\Debug\netcoreapp2.0\Modelo.pdb
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\obj\Debug\netcoreapp2.0\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\obj\Debug\netcoreapp2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\obj\Debug\netcoreapp2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\obj\Debug\netcoreapp2.0\Modelo.AssemblyInfo.cs
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\obj\Debug\netcoreapp2.0\Modelo.dll
+C:\Users\souza\Desktop\ChamadaQrWeb\Models\obj\Debug\netcoreapp2.0\Modelo.pdb
