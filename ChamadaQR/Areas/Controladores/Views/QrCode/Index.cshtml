@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Modelo.Cadastros.Qrcode>
+@{
+    Layout = "_LayoutIES";
+}
+@section styles {
+    <link rel="stylesheet" href="~/lib/datatables/media/css/jquery.dataTables.min.css" />
+}
+
+<div class="card-title">
+    <div class="card-header text-white bg-primary text-center h1">Cadastrar presenca utilizando QrCode</div>
+    <div class="card-columns">
+        <table id="tabela_qrcode">
+            <thead>
+            </thead>
+            <tbody>                            
+                  <tr>
+                      <td>
+                          <br /><br /><br />
+                          <qrcode content="@ViewBag.data" width="250 " height="250"></qrcode>
+                      </td>
+                  </tr>               
+            </tbody>
+        </table>
+    </div>
+    @*<div class="card-footer bg-success text-center">
+        <form method="post" asp-controller="qrcode" asp-action="generate"></form>
+       <a asp-action="Generate" class="btn-success"></a>
+    </div>*@
+</div>
+

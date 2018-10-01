@@ -1,0 +1,59 @@
+﻿@model Modelo.Cadastros.Professor
+
+@{
+    Layout = "_LayoutIES";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+}
+
+<div class="card-block">
+    <div class="card-header text-white bg-secondary text-center h1">Exibindo um Professor existente</div>
+    <div class="card-body">
+        <div class="form-group">
+
+            <label asp-for="Matricula" class="control-label"></label>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                </span>
+                <input asp-for="Matricula" class="form-control" disabled="disabled" />
+            </div>
+
+            <label asp-for="ProfessorNome" class="control-label"></label>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                </span>
+                <input asp-for="ProfessorNome" class="form-control" disabled="disabled" />
+            </div>
+
+            <label asp-for="Status" class="control-label"></label>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                </span>
+                <input asp-for="Status" class="form-control" disabled="disabled" />
+            </div>
+
+            <label asp-for="Projeto.ProjetoNome" class="control-label"></label>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-area-chart" aria-hidden="true"></i>
+                </span>
+                <input asp-for="Projeto.ProjetoNome" class="form-control" disabled="disabled" />
+            </div>
+
+
+        </div>
+    </div>
+    <div class="card-footer bg-info text-center text-white">
+        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.ProfessorID">Alterar</a> |
+        <a asp-action="Index" class="btn btn-warning">Retornar à listagem de Professores</a>
+    </div>
+</div>

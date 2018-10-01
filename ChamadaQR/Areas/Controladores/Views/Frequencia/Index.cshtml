@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Modelo.Cadastros.Frequencia>
+@{
+    Layout = "_LayoutIES";
+}
+@section styles {
+    @*    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>*@
+    <link rel="stylesheet" href="~/lib/datatables/media/css/jquery.dataTables.min.css" />
+}
+@if (@TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<div class="card-block">
+    <div class="card-header text-white bg-primary text-center h1">Lista de Presenca</div>
+    <div class="card-body">
+        <table id="tabela_calendario">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Aluno.Matricula)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Aluno.AlunoNome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Calendario.DataNome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Presenca)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Justificativa)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aluno.Matricula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aluno.AlunoNome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Calendario.DataNome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Presenca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Justificativa)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FrequenciaID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.FrequenciaID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.FrequenciaID">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer bg-success text-center">
+        <a asp-action="Create" class="btn-success">Cadastrar uma nova Presenca</a>
+    </div>
+</div>
+
+@section ScriptPage {
+    @*    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.js"></script>*@
+    <script type="text/javascript" src="~/lib/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+            $('#tabela_calendario').DataTable({
+                "order": [[1, "asc"]]
+            });
+        });</script>
+}
