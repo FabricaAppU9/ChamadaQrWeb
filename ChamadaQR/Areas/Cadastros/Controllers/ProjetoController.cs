@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using ChamadaQR.Data;
 using Modelo.Cadastros;
 using ChamadaQR.Data.DAL;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChamadaQR.Areas.Cadastros.Controllers
 {
     [Area("Cadastros")]
+    [Authorize]
     public class ProjetoController : Controller
     {
         private readonly IESContext _context;

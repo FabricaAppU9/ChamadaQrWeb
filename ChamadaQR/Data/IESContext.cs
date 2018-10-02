@@ -1,9 +1,11 @@
 ﻿using Modelo.Cadastros;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using ChamadaQR.Models.Infra;
 
 namespace ChamadaQR.Data
 {
-    public class IESContext : DbContext
+    public class IESContext : IdentityDbContext<UsuarioDaAplicacao>
     {
         //Corresponde a classe AlunoDBContext do ChamdaSW
         public IESContext(DbContextOptions<IESContext> options) : base(options){}
