@@ -7,10 +7,12 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChamadaQR.Areas.Cadastros.Controllers
 {
     [Area("Cadastros")]
+    [Authorize]
     public class AlunoController : Controller
     {
         private readonly IESContext _context;

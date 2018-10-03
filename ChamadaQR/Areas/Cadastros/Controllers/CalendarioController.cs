@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ChamadaQR.Data;
 using ChamadaQR.Data.DAL;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using Modelo.Cadastros;
 namespace ChamadaQR.Areas.Cadastros.Controllers
 {
     [Area("Cadastros")]
+    [Authorize]
     public class CalendarioController : Controller
     {
         private readonly IESContext _context;
