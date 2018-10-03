@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ChamadaQR.Data;
 using ChamadaQR.Data.DAL;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using Modelo.Cadastros;
 namespace ChamadaQR.Areas.Controladores.Controllers
 {
     [Area("Controladores")]
+    [Authorize]
     public class FrequenciaController : Controller
     {
         private readonly IESContext _context;
