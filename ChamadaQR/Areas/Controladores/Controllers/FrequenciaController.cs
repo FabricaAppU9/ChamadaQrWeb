@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Modelo.Cadastros;
 
-namespace ChamadaQR.Areas.Controles.Controllers
+namespace ChamadaQR.Areas.Controladores.Controllers
 {
     [Area("Controladores")]
     public class FrequenciaController : Controller

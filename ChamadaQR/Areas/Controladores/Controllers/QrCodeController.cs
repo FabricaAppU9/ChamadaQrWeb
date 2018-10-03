@@ -7,7 +7,7 @@ using ChamadaQR.Data.DAL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ChamadaQR.Areas.Controles.Controllers
+namespace ChamadaQR.Areas.Controladores.Controllers
 {
     [Area("Controladores")]
     public class QrCodeController : Controller
