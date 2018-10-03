@@ -16,7 +16,8 @@ namespace ChamadaQR.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", 
+                SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("ChamadaQR.Models.Infra.UsuarioDaAplicacao", b =>
                 {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using ChamadaQR.Models;
 
 namespace ChamadaQR.Controllers
-{    
+{
     public class HomeController : Controller
     {
         public IActionResult Index()

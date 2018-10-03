@@ -32,7 +32,6 @@ namespace ChamadaQR
             //            logger.LogError(ex, "Um erro ocorreu ao popular a base de dados.");
             //        }
             //    }
-
             host.Run();
         }
 

@@ -6,9 +6,10 @@ namespace ChamadaQR.Migrations
 {
     public partial class InitialCreate : Migration
     {
-
-
-        //Metodos criados na inclusao do Migrations
+        //Get-Help EntityFramework (Comandos disponiveis do Entity)
+        //Add-Migration [NomeDaMigracao] (no meu caso InitialCreate)
+        //PM> Update-Database -Verbose (Cria as tabale no banco de dados)
+        //Desfazer migracao: excluir __EFMigrationsHistory; Excluir a pasta Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
