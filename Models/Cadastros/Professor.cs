@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
@@ -9,8 +10,14 @@ namespace Modelo.Cadastros
     {
         [Key]
         public long? ProfessorID { get; set; }
+        [Required]
+        [DisplayName("RA")]
         public long Matricula { get; set; }
+        [Required]
+        [DisplayName("NOME")]
         public string ProfessorNome { get; set; }
+        [Required]
+        [DisplayName("STATUS")]
         public string Status { get; set; }
 
         //fk

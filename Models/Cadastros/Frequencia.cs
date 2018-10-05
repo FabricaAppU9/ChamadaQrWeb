@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace Modelo.Cadastros
 {
@@ -18,7 +19,9 @@ namespace Modelo.Cadastros
         public long? DataID { get; set; }
         public Calendario Calendario { get; set; }
 
+        [DisplayName("PRESENCA")]
         public string Presenca { get; set; }
+        [DisplayName("JUSTIFICATIVA")]
         public string Justificativa { get; set; }
 
     }

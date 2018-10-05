@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
@@ -11,11 +12,17 @@ namespace Modelo.Cadastros
          *e o projeto, a CHAVE ESTRANGEIRA. Deste modo o EF fara a criação das tabelas em 
          * banco e o relacionamento entre as mesmas
          */
-         //pk
-        [Key]
+
+        [Key]//pk
         public long? AlunoID { get; set; }
+        [Required]
+        [DisplayName("RA")]
         public long Matricula { get; set; }
+        [Required]
+        [DisplayName("NOME")]
         public string AlunoNome { get; set; }
+        [Required]
+        [DisplayName("STATUS")]
         public string Status { get; set; }
 
         //fk
