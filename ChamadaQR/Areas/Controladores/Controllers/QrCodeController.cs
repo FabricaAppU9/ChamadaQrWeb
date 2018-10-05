@@ -28,7 +28,7 @@ namespace ChamadaQR.Areas.Controladores.Controllers
         }
 
         public static int i = 1;
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             await Tempos(i);
             i++;
