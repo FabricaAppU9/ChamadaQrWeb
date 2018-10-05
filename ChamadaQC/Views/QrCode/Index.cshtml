@@ -12,16 +12,13 @@
 </head>
 <body>
     <br />
-    <form method="post" asp-controller="qrcode" asp-action="generate">
-        @*<input type="text" placeholder="Password" name="senha" value="@ViewBag.data" />*@
+    @*<form method="post" asp-controller="qrcode" asp-action="generate">
+        <input type="text" placeholder="" name="senha" value="@ViewBag.data" />
         <input type="submit" value="Generate" />
-    </form>
+    </form>*@
 
+    <qrcode content="@ViewBag.data" width="250 " height="250"></qrcode>
 
-    @if (@ViewBag.data != null)
-    {
-        <qrcode content="@ViewBag.data" width="200 " height="200"></qrcode>
-
-    }
+    <meta http-equiv="refresh" content="2" />
 </body>
 </html>

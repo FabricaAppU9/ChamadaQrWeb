@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 using ChamadaQR.Data;
 using ChamadaQR.Data.DAL;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Modelo.Cadastros;
 
 namespace ChamadaQR.Areas.Controladores.Controllers
 {
@@ -17,11 +20,34 @@ namespace ChamadaQR.Areas.Controladores.Controllers
         private readonly IESContext _context;
         private readonly QrcodeDAL qrcodeDAL;
 
-        public IActionResult Index()
+        //Configuracoes do contexto
+        public QrCodeController(IESContext context)
         {
+            _context = context;
+            qrcodeDAL = new QrcodeDAL(context);
+        }
+
+        public static int i = 1;
+        public async Task<IActionResult> IndexAsync()
+        {
+            await Tempos(i);
+            i++;
+            return View("Index");
+        }
+
+        public async Task<IActionResult> Tempos(int i)
+        {
+            Timer timer = new Timer();
+            timer.Start();
+
             string data = DateTime.Today.ToString("dd/MM/yyyy");
-            ViewBag.data = data.GetHashCode();
-            return View();
-        }        
+            data = data + " - " + i + " - valida";
+            ViewBag.data = data;
+
+            var qrcode = new Qrcode(1,data);
+            await qrcodeDAL.GravarQrcode(qrcode);
+
+            return View("Index");
+        }    
     }
 }

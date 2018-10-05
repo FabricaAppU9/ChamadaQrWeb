@@ -1,29 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using System.Timers;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChamadaQC.Controllers
 {
+    //https://www.youtube.com/watch?v=zKygdgTRGY4&t=274s
 
     public class QrCodeController : Controller
     {
+        public static int i = 1;
         public IActionResult Index()
         {
-            return View();
+            Tempos(i);
+            i++;
+            return View("Index");
         }
 
-        public IActionResult Generate()
+        public IActionResult Tempos(int i)
         {
-            string senha = "@teste";
+            Timer timer = new Timer();           
+            timer.Start();
+
             string data = DateTime.Today.ToString("dd/MM/yyyy");
-            string dataComposta = data + ";" + senha;
-            ViewBag.data = dataComposta.GetHashCode();
+            ViewBag.data = data + " - " + i + " - valida";
 
             return View("Index");
         }
 
+
+        //public IActionResult Generate()
+        //{
+        //    string senha = "@teste";
+        //    string data = DateTime.Today.ToString("dd/MM/yyyy");
+        //    string dataComposta = data + ";" + senha;
+        //    ViewBag.data = dataComposta.GetHashCode();
+
+        //    Timer timer = new Timer(1000);
+        //    timer.Elapsed += async (sender, e) => await HandleTimer();
+        //    timer.Start();
+
+        //    ViewBag.data = i;
+        //    i++;
+        //    return View("Index");
+        //}
+        //private static Task HandleTimer()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
