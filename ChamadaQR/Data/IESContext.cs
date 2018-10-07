@@ -30,7 +30,8 @@ namespace ChamadaQR.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=IESUtfpr;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Server =sql169.main-hosting.eu;Database=u788734955_fabws;Uid=u788734955_root;Pwd=v0DKKhflJ5uS;SslMode=none");
+            // optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=IESUtfpr;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
     }
 }

@@ -18,8 +18,9 @@ namespace ChamadaTE
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {                   
-            string comStr = "Database=localdb;Data Source=127.0.0.1;User Id=azure;Password=6#vWHD_$;Port=56550";
+        {
+            string comStr = "Server=sql169.main-hosting.eu;Database=u788734955_fabws;Uid=u788734955_root;Pwd=v0DKKhflJ5uS;SslMode=none";
+            //string comStr = "Database=localdb;Data Source=127.0.0.1;User Id=azure;Password=6#vWHD_$;Port=56550";
             MySqlConnection con = new MySqlConnection(comStr);
             try
             {
