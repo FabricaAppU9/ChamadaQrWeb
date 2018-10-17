@@ -1,6 +1,7 @@
 ﻿ChamadaQR
 User: everton_ace@hotmail.com
 Pass: @Uninove2018
+PassUol:1981Ever06
 
 ***** Abaixo o passo a passo para configurar o Entity para acessar o banco de dados e construir as tabelas *****
 

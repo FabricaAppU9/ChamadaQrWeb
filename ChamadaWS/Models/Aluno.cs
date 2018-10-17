@@ -10,7 +10,7 @@ namespace ChamadaWS.Models
         [Key]
         public long? AlunoID { get; set; }
         public long Matricula { get; set; }
-        public string Nome { get; set; }
+        public string AlunoNome { get; set; }
         public string Status { get; set; }
 
 

@@ -64,7 +64,7 @@ namespace ChamadaWS.Controllers
                 return NotFound();
             }
 
-            _aluno.Nome = aluno.Nome;
+            _aluno.AlunoNome = aluno.AlunoNome;
             _alunoRepositorio.Update(_aluno);
             return new NoContentResult();
         }

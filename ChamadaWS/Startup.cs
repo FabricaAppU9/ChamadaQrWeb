@@ -27,9 +27,7 @@ namespace ChamadaWS
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            //nome:fabws user:root senha:v0DKKhflJ5uS host:sql169.main-hosting.eu
-            //meuip: 179.225.173.150
+        {            
             services.AddDbContext<WSDbContext>(options =>           
             options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAlunoRepositorio, AlunoRepositorio>();
