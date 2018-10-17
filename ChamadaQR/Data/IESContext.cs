@@ -7,6 +7,7 @@ namespace ChamadaQR.Data
 {
     public class IESContext : IdentityDbContext<UsuarioDaAplicacao>
     {
+        
         //Corresponde a classe AlunoDBContext do ChamdaSW
         public IESContext(DbContextOptions<IESContext> options) : base(options){}
 
@@ -27,11 +28,15 @@ namespace ChamadaQR.Data
             modelBuilder.Entity<Professor>().ToTable("Professor");
             modelBuilder.Entity<Qrcode>().ToTable("Qrcode");
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server =sql169.main-hosting.eu;Database=u788734955_fabws;Uid=u788734955_root;Pwd=v0DKKhflJ5uS;SslMode=none");
-            // optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=IESUtfpr;Trusted_Connection=True;MultipleActiveResultSets=true");
-        }
+        
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.
+        //        UseMySql("Server=chamadaqr.mysql.uhserver.com;" +
+        //                     "Database=chamadaqr;" +
+        //                     "Uid=ever1981;" +
+        //                     "Pwd=@2018root;");
+        //    // optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=IESUtfpr;Trusted_Connection=True;MultipleActiveResultSets=true");
+        //}
     }
 }

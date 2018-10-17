@@ -16,8 +16,7 @@ namespace ChamadaQR.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", 
-                SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("ChamadaQR.Models.Infra.UsuarioDaAplicacao", b =>
                 {
@@ -183,13 +182,15 @@ namespace ChamadaQR.Migrations
                     b.Property<long?>("AlunoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AlunoNome");
+                    b.Property<string>("AlunoNome")
+                        .IsRequired();
 
                     b.Property<long>("Matricula");
 
                     b.Property<long?>("ProjetoID");
 
-                    b.Property<string>("Status");
+                    b.Property<string>("Status")
+                        .IsRequired();
 
                     b.HasKey("AlunoID");
 
@@ -203,7 +204,8 @@ namespace ChamadaQR.Migrations
                     b.Property<long?>("DataID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("DataNome");
+                    b.Property<string>("DataNome")
+                        .IsRequired();
 
                     b.HasKey("DataID");
 
@@ -239,11 +241,13 @@ namespace ChamadaQR.Migrations
 
                     b.Property<long>("Matricula");
 
-                    b.Property<string>("ProfessorNome");
+                    b.Property<string>("ProfessorNome")
+                        .IsRequired();
 
                     b.Property<long?>("ProjetoID");
 
-                    b.Property<string>("Status");
+                    b.Property<string>("Status")
+                        .IsRequired();
 
                     b.HasKey("ProfessorID");
 
@@ -257,9 +261,11 @@ namespace ChamadaQR.Migrations
                     b.Property<long?>("ProjetoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Endereco");
+                    b.Property<string>("Endereco")
+                        .IsRequired();
 
-                    b.Property<string>("ProjetoNome");
+                    b.Property<string>("ProjetoNome")
+                        .IsRequired();
 
                     b.HasKey("ProjetoID");
 
@@ -271,7 +277,8 @@ namespace ChamadaQR.Migrations
                     b.Property<long?>("QrCodeID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Validacao");
+                    b.Property<string>("Validacao")
+                        .IsRequired();
 
                     b.HasKey("QrCodeID");
 

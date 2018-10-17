@@ -27,7 +27,7 @@ namespace ChamadaQR
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<IESContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("IESConnection")));
+                    options.UseMySql(Configuration.GetConnectionString("IESConnection")));
 
             services.AddIdentity<UsuarioDaAplicacao, IdentityRole>()
                     .AddEntityFrameworkStores<IESContext>().AddDefaultTokenProviders();

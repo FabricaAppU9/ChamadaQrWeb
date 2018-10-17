@@ -1,0 +1,43 @@
+﻿ChamadaQR
+User: everton_ace@hotmail.com
+Pass: @Uninove2018
+
+***** Abaixo o passo a passo para configurar o Entity para acessar o banco de dados e construir as tabelas *****
+
+Nese projeto estou utilizando o dbo MySql, no provedor da UOL.
+
+Para configurar a Persistencia eh necessario:
+
+1.Comentar o onConfiguring na classe IESContext para nao haver conflito com o banco, pois estaremos informando o
+	mesmo em outro local;
+
+2.Alterar a string de conexao no appsettings.json, conforme o banco de dados escolhido, neste caso MySql;
+
+3.Alterar o ConfigureServices na Startup.cs, conforme o banco de dados escolhido, neste caso MySql;
+
+4.Certficar-se de que todas as instancias estao configuradas conforme o banco de dados escolhido, no caso deste 
+	projeto o MySql.
+         
+Neste primeiro momento serao criadas as tabelas utilizando-se da IESDbInializer.cs, onde algumas informações para
+	testes foram previamente disponibilizadas.
+
+O Entity ira criar e popular as tabelas, contanto que o banco de dados esteja disponivel no servidor de acordo com
+	a string de conexao fornecida
+
+Ate este momento ao iniciar o projeto o banco de dados eh excluido e criado novamente, por conta da IESDbInializer.cs
+
+****************************** Entity Migrations ********************************
+
+Utilizando-se do Migrations nao sera mais necessario excluir e levantar as tabelas. Caso haja uma alteracao em 
+	alguma tabela do banco iremos utilizar o migrations.
+
+1.Para que o Migrations funcione sera necessario comentar o trecho de codigo na Startup.cs (de... / ate...), pois
+	este trecho starta o IESDbInializer.cs, e neste momento nao o utilizaremos mais;
+2.Add-Migration [NomeDaMigracao] (no meu caso InitialCreate);
+3.Update-Database -Verbose (Cria as tabale no banco de dados);
+4.excluir __EFMigrationsHistory (desfazer migracao); 
+5.Excluir a pasta Migrations;
+
+Para obter lista de outros comandos disponiveis no Entity, segue comando abaixo:
+Get-Help EntityFramework (Comandos disponiveis do Entity)
+
