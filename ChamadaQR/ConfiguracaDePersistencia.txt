@@ -2,6 +2,10 @@
 User: everton_ace@hotmail.com
 Pass: @Uninove2018
 PassUol:1981Ever06
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs?view=aspnetcore-2.1
+
+--->>>Para publicar o projeto temos que alterar para de Debug para Release e na pasta deletar a opcao 
+ASPNETCORE_ENVIRONMET / Development em ChamadaQR>Propriedades>Debug, dar build e publicar, ChamadaQR > Propriedades -Dev para Prod<<<---
 
 ***** Abaixo o passo a passo para configurar o Entity para acessar o banco de dados e construir as tabelas *****
 

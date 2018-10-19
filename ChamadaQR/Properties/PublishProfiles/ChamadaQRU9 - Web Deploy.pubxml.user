@@ -8,4 +8,9 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUjOcbhros0mZiGt8NGzmZwAAAAACAAAAAAAQZgAAAAEAACAAAACZsfpEpHHEusSrL8m5D3NqmTzz5jih5iwXiN3dBWaxRAAAAAAOgAAAAAIAACAAAAByD1brRiXiwBOdfknFU7y+YzvdeUYHg+QHmHX8f4T6qoAAAABqLKDxXJDeyAz2d6YwsjJ3JrX2i23Qe+49zGhnzOCpjYahGq3x55IQNeY0ImyLeKYy9P/9pZ0JK1Prhf/e7BQMuIUENyA1Nx5sZWwhv1FOxeUYXHMSd1P9JO/wB19ESBRy5VUu4PfNmohhfzDyCmnDfzn0JZqwRnTt+OnDYwGDAkAAAACAZtlr4x3mBHu/dE8cTgMnFMClxOMcel6hUarCLZBIWSkpEM8USfGnJ8ITkUbPoEWGmiT1BlURHnf0yN8+odNR</EncryptedPassword>
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="IESConnection">
+      <Value>Server=chamadaqr.mysql.uhserver.com;Database=chamadaqr;Uid=ever1981;Pwd=@2018root;</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>
