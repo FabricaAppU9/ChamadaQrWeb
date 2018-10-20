@@ -9,3 +9,14 @@ C:\Users\evert\Desktop\FABRICAGIT\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.As
 C:\Users\evert\Desktop\FABRICAGIT\ChamadaQC\bin\Debug\netcoreapp2.0\ChamadaQC.pdb
 C:\Users\evert\Desktop\FABRICAGIT\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.dll
 C:\Users\evert\Desktop\FABRICAGIT\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.pdb
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\bin\Debug\netcoreapp2.0\ChamadaQC.deps.json
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\bin\Debug\netcoreapp2.0\ChamadaQC.runtimeconfig.json
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\bin\Debug\netcoreapp2.0\ChamadaQC.runtimeconfig.dev.json
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\bin\Debug\netcoreapp2.0\ChamadaQC.dll
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\bin\Debug\netcoreapp2.0\ChamadaQC.pdb
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.csprojResolveAssemblyReference.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.csproj.CoreCompileInputs.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.AssemblyInfoInputs.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.AssemblyInfo.cs
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.dll
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaQC\obj\Debug\netcoreapp2.0\ChamadaQC.pdb

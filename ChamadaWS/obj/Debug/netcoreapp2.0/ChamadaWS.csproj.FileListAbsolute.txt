@@ -31,3 +31,14 @@ C:\Users\evert\Desktop\FABRICAGIT\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.As
 C:\Users\evert\Desktop\FABRICAGIT\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.AssemblyInfo.cs
 C:\Users\evert\Desktop\FABRICAGIT\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.dll
 C:\Users\evert\Desktop\FABRICAGIT\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.pdb
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\bin\Debug\netcoreapp2.0\ChamadaWS.deps.json
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\bin\Debug\netcoreapp2.0\ChamadaWS.runtimeconfig.json
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\bin\Debug\netcoreapp2.0\ChamadaWS.runtimeconfig.dev.json
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\bin\Debug\netcoreapp2.0\ChamadaWS.dll
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\bin\Debug\netcoreapp2.0\ChamadaWS.pdb
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.csprojResolveAssemblyReference.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.csproj.CoreCompileInputs.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.AssemblyInfoInputs.cache
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.AssemblyInfo.cs
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.dll
+C:\Users\souza\Desktop\ChamadaQrWeb\ChamadaWS\obj\Debug\netcoreapp2.0\ChamadaWS.pdb

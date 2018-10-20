@@ -1,5 +1,7 @@
 ﻿using Modelo.Cadastros;
 using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
+using MySql.Data.EntityFrameworkCore;
 
 namespace ChamadaQR.Data
 {
@@ -26,7 +28,8 @@ namespace ChamadaQR.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=IESUtfpr;Trusted_Connection=True;MultipleActiveResultSets=true");
+            //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=IESUtfpr;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseMySQL("Server=chamada-qr.mysql.database.azure.com;Port=56550;Database=localdb;Uid=azure@chamada-qr;Pwd=6#vWHD_$");
         }
     }
 }

@@ -24,7 +24,8 @@ namespace ChamadaQR
         //Corresponde a Classe starup do chamadaWS
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<IESContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("IESConnection")));
+            //services.AddDbContext<IESContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("IESConnection")));
+            services.AddDbContext<IESContext>(options => options.UseMySQL(Configuration.GetConnectionString("IESConnection")));
             services.AddMvc();
         }
 
