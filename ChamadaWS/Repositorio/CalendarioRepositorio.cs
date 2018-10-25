@@ -20,15 +20,23 @@ namespace ChamadaWS.Repositorio
             _context.Add(calendario);
             _context.SaveChanges();
         }
-
+        
         public Calendario Find(long id)
         {
             return _context.Calendarios.FirstOrDefault(c => c.DataID == id);
         }
 
-        public IEnumerable<Calendario> GetAll()
-        {
-            return _context.Calendarios.ToList();
+        //public IEnumerable<Calendario> GetAll()
+        //{
+        //    return _context.Calendarios.ToList();
+        //}
+        
+        public Calendario GetDay(long id)
+        {        
+            string data = DateTime.Today.ToString("dd/MM/yyyy");
+            var calendario = _context.Calendarios.FirstOrDefault(c => c.DataNome == data);
+            var pegaID = calendario.DataID;            
+            return _context.Calendarios.FirstOrDefault(c => c.DataID == pegaID);
         }
 
         public void Remove(long id)
@@ -42,6 +50,6 @@ namespace ChamadaWS.Repositorio
         {
             _context.Calendarios.Update(calendario);
             _context.SaveChanges();
-        }
+        }        
     }
 }

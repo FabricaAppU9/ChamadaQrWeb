@@ -31,9 +31,9 @@ namespace ChamadaQR
             //        var logger = services.GetRequiredService<ILogger<Program>>();
             //        logger.LogError(ex, "Um erro ocorreu ao popular a base de dados.");
             //    }
-            //}
-            //desabilitar para o entity ate.....
-            host.Run();
+            //    }
+                //desabilitar para o entity ate.....
+                host.Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

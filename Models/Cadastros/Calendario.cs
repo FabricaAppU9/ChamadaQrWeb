@@ -10,6 +10,7 @@ namespace Modelo.Cadastros
     public class Calendario
     {
         [Key]
+        [DisplayName("ID")]
         public long? DataID { get; set; }
         [Required]
         [DisplayName("DATA")]

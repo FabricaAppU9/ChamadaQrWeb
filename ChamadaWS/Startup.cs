@@ -33,6 +33,7 @@ namespace ChamadaWS
             services.AddTransient<IAlunoRepositorio, AlunoRepositorio>();
             services.AddTransient<IFrequenciaRepositorio, FrequenciaRepositorio>();
             services.AddTransient<ICalendarioRepositorio, CalendarioRepositorio>();
+            services.AddTransient<IQrCodeRepositorio, QrCodeRepositorio>();
             services.AddMvc();
         }
 

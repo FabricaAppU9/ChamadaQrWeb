@@ -7,6 +7,7 @@ namespace Modelo.Cadastros
     public class Projeto
     {
         [Key]
+        [DisplayName("ID")]
         public long? ProjetoID { get; set; }
         [Required]
         [DisplayName("PROJETO")]

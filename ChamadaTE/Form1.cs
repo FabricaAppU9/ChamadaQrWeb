@@ -22,22 +22,51 @@ namespace ChamadaTE
         //
         private void button1_Click(object sender, EventArgs e)
         {
-            //bosta do hostinger
-            //string conStr = "Data Source = sql169.main-hosting.eu; Network Library = DBMSSOCN;Initial Catalog = u788734955_chaqr; User ID = u788734955_root; Password = YEr6jv4hPd4U;";
-            //"Server=sql169.main-hosting.eu;Port=3306;Database=u788734955_local;Uid=u788734955_ever;Pwd=root2018root;ConnectionLifeTime=3000;sslmode=none;";
-            
-            //uol
-            string conStr = "Server=chamadaqr.mysql.uhserver.com;" +
-                            "Database=chamadaqr;" +
-                            "Uid=ever1981;" +
-                            "Pwd=@2018root;" +
-                            "sslmode=none;";
+            //Conexao de dados com MySql no host do uol
+            string conStrMsql = 
+                 "Server=chamadaqr.mysql.uhserver.com;" +
+                 "Database=chamadaqr;" +
+                 "Uid=ever1981;" +
+                 "Pwd=@2018root;" +
+                 "sslmode=none;";
 
-            MySqlConnection con = new MySqlConnection(conStr);
+
+            //Conexao de dados com SqlServer no host do azure
+            string conStrSqlServer = 
+                "Server = tcp:chamadaqr.database.windows.net,1433;" +
+                "Initial Catalog=chamadaqr;" +
+                "Persist Security Info=False;" +
+                "User ID=u9adm;" +
+                "Password=@2018root;" +
+                "MultipleActiveResultSets=False;" +
+                "Encrypt=True;" +
+                "TrustServerCertificate=False;" +
+                "Connection Timeout=30;";
+
+            //Conexao de dados com MySql no host do azure mysql
+            string conStrMsqlAzure =
+                "Server=chamadaqr-mysqldbserver.mysql.database.azure.com; " +
+                "Port=3306; " +
+                "Database=chamadaqr; " +
+                "Uid=u9adm@chamadaqr-mysqldbserver; " +
+                "Pwd=@2018root; " +
+                "SslMode=none;";
+
+            //Variavel de ambiente - MYSQLCONNSTR_localdb
+            //Armaznamento do mysql - d:\home\data\mysql
+            //Localizacao do log - d:\home\logfiles\mysql
+
+
+            MySqlConnection con1 = new MySqlConnection(conStrMsql);
+            SqlConnection con2 = new SqlConnection(conStrSqlServer);
+            MySqlConnection con3 = new MySqlConnection(conStrMsqlAzure);
+
+            var mycon = con3;
+
             try
             {
-                con.Open();
-                MessageBox.Show("Connection Open ! ");
+                mycon.Open();
+                MessageBox.Show("Connection Open! ");
 
                 //DataTable table = new DataTable();
                 //MySqlDataAdapter adapter = new MySqlDataAdapter("Select * from Aluno", con);
@@ -50,8 +79,7 @@ namespace ChamadaTE
                 while (leitor.Read())
                 MessageBox.Show(leitor[0].ToString());
                */
-
-                con.Close();
+                mycon.Close();
             }
             catch (Exception ex)
             {

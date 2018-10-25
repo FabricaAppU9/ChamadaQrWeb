@@ -98,19 +98,19 @@ namespace ChamadaQR.Data
             context.SaveChanges();
 
             //Qrcode
-            //if (context.Qrcodes.Any())
-            //    return;
-            
-            //var qrcodes = new Qrcode[]
-            //{
-            //    new Qrcode {  1,  "testeDeCodigoParaValidacao" }                
-            //};
+            if (context.Qrcodes.Any())
+                return;
 
-            //foreach (Qrcode q in qrcodes)
-            //{
-            //    context.Qrcodes.Add(q);
-            //}
-            //context.SaveChanges();
+            var qrcodes = new Qrcode[]
+            {
+                new Qrcode(1,"validacao")
+            };
+
+            foreach (Qrcode q in qrcodes)
+            {
+                context.Qrcodes.Add(q);
+            }
+            context.SaveChanges();
         }
     }
 }

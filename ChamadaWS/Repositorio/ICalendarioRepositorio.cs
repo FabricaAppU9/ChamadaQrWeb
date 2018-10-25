@@ -9,8 +9,9 @@ namespace ChamadaWS.Repositorio
     public interface ICalendarioRepositorio
     {
         void Add(Calendario calendario);
-        IEnumerable<Calendario> GetAll();
-        Calendario Find(long id);
+        //IEnumerable<Calendario> GetAll();
+        Calendario GetDay(long id);
+        Calendario Find(long id);        
         void Remove(long id);
         void Update(Calendario calendario);
     }

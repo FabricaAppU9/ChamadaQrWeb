@@ -27,6 +27,11 @@ namespace ChamadaWS.Repositorio
             return _context.Alunos.FirstOrDefault(a => a.AlunoID == id);
         }
 
+        public Aluno FindMatricula(long matricula)
+        {                 
+            return _context.Alunos.FirstOrDefault(m => m.Matricula == matricula);
+        }
+
         public IEnumerable<Aluno> GetAll()
         {
             return _context.Alunos.ToList();

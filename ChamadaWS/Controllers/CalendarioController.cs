@@ -20,22 +20,29 @@ namespace ChamadaWS.Controllers
             _calendarioRepositorio = calendarioRepositorio;
         }
 
-        [HttpGet]
-        public IEnumerable<Calendario> GetAll()
-        {
-            return _calendarioRepositorio.GetAll();
-        }
+        //[HttpGet]
+        //public IEnumerable<Calendario> GetAll()
+        //{
+        //    return _calendarioRepositorio.GetAll();
+        //}
 
-        [HttpGet("{id}", Name = "GetCalendario")]
+        //[HttpGet]
+        //public IEnumerable<Calendario> GetDay()
+        //{
+        //    return _calendarioRepositorio.GetDay(id);
+        //}
+
+        [HttpGet]//("{id}", Name = "GetCalendario")]
         public IActionResult GetById(long id)
         {
-            var calendario = _calendarioRepositorio.Find(id);
+            var calendario = _calendarioRepositorio.GetDay(id);
             if (calendario == null)
             {
                 return NotFound();
             }
             return new ObjectResult(calendario);
         }
+
 
         [HttpPost]
         public IActionResult Create([FromBody]Calendario calendario)

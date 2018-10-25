@@ -19,7 +19,7 @@ namespace ChamadaWS.Controllers
         public AlunoController(IAlunoRepositorio alunoRepositorio)
         {
             _alunoRepositorio = alunoRepositorio;
-        }
+       }
 
         [HttpGet]
         public IEnumerable<Aluno> GetAll()
@@ -27,14 +27,30 @@ namespace ChamadaWS.Controllers
             return _alunoRepositorio.GetAll();
         }
 
-        [HttpGet("{id}", Name ="GetAluno")]
-        public IActionResult GetById(long id)
-        {
-            var aluno = _alunoRepositorio.Find(id);
+        //[HttpGet("{id}", Name ="GetAluno")]
+        //public IActionResult GetById(long id)
+        //{
+        //    var aluno = _alunoRepositorio.Find(id);
+        //    if (aluno == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return new ObjectResult(aluno);
+        //}
+
+        [HttpGet("{matricula}", Name = "GetAluno")]
+        public IActionResult GetByMatricula(long matricula)
+        {           
+            var aluno = _alunoRepositorio.FindMatricula(matricula);
             if (aluno == null)
             {
-                return NotFound();
+                return NotFound("Aluno " + matricula + " Inexistente.");
             }
+            else if(aluno.Status != "ATIVO")            
+            {
+                return NotFound("Aluno " + aluno.Matricula + " Inativo.");                        
+            }                        
+
             return new ObjectResult(aluno);
         }
 

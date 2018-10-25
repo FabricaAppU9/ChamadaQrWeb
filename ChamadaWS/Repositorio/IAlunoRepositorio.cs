@@ -11,6 +11,7 @@ namespace ChamadaWS.Repositorio
         void Add(Aluno aluno);
         IEnumerable<Aluno> GetAll();
         Aluno Find(long id);
+        Aluno FindMatricula(long matricula);
         void Remove(long id);
         void Update(Aluno aluno);
     }
