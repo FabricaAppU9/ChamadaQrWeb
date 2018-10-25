@@ -15,22 +15,6 @@ namespace ChamadaWS.Repositorio
             _context = context;
         }
 
-        public void Add(Calendario calendario)
-        {
-            _context.Add(calendario);
-            _context.SaveChanges();
-        }
-        
-        public Calendario Find(long id)
-        {
-            return _context.Calendarios.FirstOrDefault(c => c.DataID == id);
-        }
-
-        //public IEnumerable<Calendario> GetAll()
-        //{
-        //    return _context.Calendarios.ToList();
-        //}
-        
         public Calendario GetDay(long id)
         {        
             string data = DateTime.Today.ToString("dd/MM/yyyy");
@@ -38,18 +22,37 @@ namespace ChamadaWS.Repositorio
             var pegaID = calendario.DataID;            
             return _context.Calendarios.FirstOrDefault(c => c.DataID == pegaID);
         }
+        
+        //Metodos comentados para uso posterior****************************************
 
-        public void Remove(long id)
-        {
-            var calendario = _context.Calendarios.FirstOrDefault(c => c.DataID == id);
-            _context.Calendarios.Remove(calendario);
-            _context.SaveChanges();
-        }
+        //public void Add(Calendario calendario)
+        //{
+        //    _context.Add(calendario);
+        //    _context.SaveChanges();
+        //}
 
-        public void Update(Calendario calendario)
-        {
-            _context.Calendarios.Update(calendario);
-            _context.SaveChanges();
-        }        
+        //public Calendario Find(long id)
+        //{
+        //    return _context.Calendarios.FirstOrDefault(c => c.DataID == id);
+        //}
+
+        //public IEnumerable<Calendario> GetAll()
+        //{
+        //    return _context.Calendarios.ToList();
+        //}
+        
+
+        //public void Remove(long id)
+        //{
+        //    var calendario = _context.Calendarios.FirstOrDefault(c => c.DataID == id);
+        //    _context.Calendarios.Remove(calendario);
+        //    _context.SaveChanges();
+        //}
+
+        //public void Update(Calendario calendario)
+        //{
+        //    _context.Calendarios.Update(calendario);
+        //    _context.SaveChanges();
+        //}        
     }
 }

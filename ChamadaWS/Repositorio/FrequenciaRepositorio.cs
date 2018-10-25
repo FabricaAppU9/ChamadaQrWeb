@@ -26,22 +26,24 @@ namespace ChamadaWS.Repositorio
             return _context.Frequencias.FirstOrDefault(p => p.FrequenciaID == id);
         }
 
-        public IEnumerable<Frequencia> GetAll()
-        {
-            return _context.Frequencias.ToList();
-        }
+        //Metodos comentados para uso posterior****************************************
 
-        public void Remove(long id)
-        {
-            var frequencia = _context.Frequencias.FirstOrDefault(p => p.FrequenciaID == id);
-            _context.Frequencias.Remove(frequencia);
-            _context.SaveChanges();
-        }
+        //public IEnumerable<Frequencia> GetAll()
+        //{
+        //    return _context.Frequencias.ToList();
+        //}
 
-        public void Update(Frequencia frequencia)
-        {
-            _context.Frequencias.Update(frequencia);
-            _context.SaveChanges();
-        }
+        //public void Remove(long id)
+        //{
+        //    var frequencia = _context.Frequencias.FirstOrDefault(p => p.FrequenciaID == id);
+        //    _context.Frequencias.Remove(frequencia);
+        //    _context.SaveChanges();
+        //}
+
+        //public void Update(Frequencia frequencia)
+        //{
+        //    _context.Frequencias.Update(frequencia);
+        //    _context.SaveChanges();
+        //}
     }
 }

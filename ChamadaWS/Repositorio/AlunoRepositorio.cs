@@ -16,17 +16,6 @@ namespace ChamadaWS.Repositorio
             _context = context;
         }
 
-        public void Add(Aluno aluno)
-        {
-            _context.Add(aluno);
-            _context.SaveChanges();
-        }
-
-        public Aluno Find(long id)
-        {
-            return _context.Alunos.FirstOrDefault(a => a.AlunoID == id);
-        }
-
         public Aluno FindMatricula(long matricula)
         {                 
             return _context.Alunos.FirstOrDefault(m => m.Matricula == matricula);
@@ -37,17 +26,31 @@ namespace ChamadaWS.Repositorio
             return _context.Alunos.ToList();
         }
 
-        public void Remove(long id)
-        {
-            var aluno = _context.Alunos.FirstOrDefault(a => a.AlunoID == id);
-            _context.Alunos.Remove(aluno);
-            _context.SaveChanges();
-        }
+        //Metodos comentados para uso posterior****************************************
 
-        public void Update(Aluno aluno)
-        {
-            _context.Alunos.Update(aluno);
-            _context.SaveChanges();
-        }
+        //public void Add(Aluno aluno)
+        //{
+        //    _context.Add(aluno);
+        //    _context.SaveChanges();
+        //}
+
+        //public Aluno Find(long id)
+        //{
+        //    return _context.Alunos.FirstOrDefault(a => a.AlunoID == id);
+        //}
+
+
+        //public void Remove(long id)
+        //{
+        //    var aluno = _context.Alunos.FirstOrDefault(a => a.AlunoID == id);
+        //    _context.Alunos.Remove(aluno);
+        //    _context.SaveChanges();
+        //}
+
+        //public void Update(Aluno aluno)
+        //{
+        //    _context.Alunos.Update(aluno);
+        //    _context.SaveChanges();
+        //}
     }
 }

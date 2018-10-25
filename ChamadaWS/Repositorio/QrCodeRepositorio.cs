@@ -15,11 +15,6 @@ namespace ChamadaWS.Repositorio
             _context = context;
         }
 
-        public Qrcode Find(long id)
-        {
-            return _context.Qrcodes.FirstOrDefault(q => q.QrCodeID == id);
-        }
-
         public IEnumerable<Qrcode> GetAll()
         {
             return _context.Qrcodes.ToList();

@@ -8,11 +8,13 @@ namespace ChamadaWS.Repositorio
 {
     public interface IAlunoRepositorio
     {
-        void Add(Aluno aluno);
-        IEnumerable<Aluno> GetAll();
-        Aluno Find(long id);
         Aluno FindMatricula(long matricula);
-        void Remove(long id);
-        void Update(Aluno aluno);
+        IEnumerable<Aluno> GetAll();
+
+        //Metodos comentados para uso posterior****************************************
+        //void Add(Aluno aluno);
+        //Aluno Find(long id);
+        //void Remove(long id);
+        //void Update(Aluno aluno);
     }
 }

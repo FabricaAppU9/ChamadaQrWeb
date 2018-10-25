@@ -20,22 +20,6 @@ namespace ChamadaWS.Controllers
             _frequenciaRepositorio = frequenciaRepositorio;
         }
 
-        [HttpGet]
-        public IEnumerable<Frequencia> GetAll()
-        {
-            return _frequenciaRepositorio.GetAll();
-        }
-
-        [HttpGet("{id}", Name="GetFrequencia")]
-        public IActionResult GetById(long id)
-        {
-            var frequencia = _frequenciaRepositorio.Find(id);
-            if (frequencia == null)
-            {
-                return NotFound();
-            }
-            return new ObjectResult(frequencia);
-        }
 
         [HttpPost]
         public IActionResult Create([FromBody]Frequencia frequencia)
@@ -49,36 +33,56 @@ namespace ChamadaWS.Controllers
             return CreatedAtRoute("GetFrequencia", new { id = frequencia.FrequenciaID }, frequencia);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(long id,[FromBody]Frequencia frequencia)
-        {
-            if (frequencia == null || frequencia.FrequenciaID != null)
-            {
-                return BadRequest();
-            }
+        //Metodos comentados para uso posterior****************************************
 
-            var _frequencia = _frequenciaRepositorio.Find(id);
-            if (frequencia == null)
-            {
-                return NotFound();
-            }
+        //[HttpGet]
+        //public IEnumerable<Frequencia> GetAll()
+        //{
+        //    return _frequenciaRepositorio.GetAll();
+        //}
 
-            _frequencia.FrequenciaID = frequencia.FrequenciaID;
-            _frequenciaRepositorio.Update(_frequencia);
-            return new NoContentResult();
-        }
+        //[HttpPut("{id}")]
+        //public IActionResult Update(long id,[FromBody]Frequencia frequencia)
+        //{
+        //    if (frequencia == null || frequencia.FrequenciaID != null)
+        //    {
+        //        return BadRequest();
+        //    }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
-        {
-            var frequencia = _frequenciaRepositorio.Find(id);
-            if (frequencia == null)
-            {
-                return NotFound();
-            }
+        //    var _frequencia = _frequenciaRepositorio.Find(id);
+        //    if (frequencia == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _frequenciaRepositorio.Remove(id);
-            return new NoContentResult();
-        }
+        //    _frequencia.FrequenciaID = frequencia.FrequenciaID;
+        //    _frequenciaRepositorio.Update(_frequencia);
+        //    return new NoContentResult();
+        //}
+
+        //[HttpGet("{id}", Name="GetFrequencia")]
+        //public IActionResult GetById(long id)
+        //{
+        //    var frequencia = _frequenciaRepositorio.Find(id);
+        //    if (frequencia == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return new ObjectResult(frequencia);
+        //}
+
+
+        //[HttpDelete("{id}")]
+        //public IActionResult Delete(long id)
+        //{
+        //    var frequencia = _frequenciaRepositorio.Find(id);
+        //    if (frequencia == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    _frequenciaRepositorio.Remove(id);
+        //    return new NoContentResult();
+        //}
     }
 }

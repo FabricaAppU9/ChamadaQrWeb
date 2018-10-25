@@ -20,6 +20,19 @@ namespace ChamadaWS.Controllers
             _calendarioRepositorio = calendarioRepositorio;
         }
 
+        [HttpGet]
+        public IActionResult GetById(long id)
+        {
+            var calendario = _calendarioRepositorio.GetDay(id);
+            if (calendario == null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(calendario);
+        }
+
+        //Metodos comentados para uso posterior****************************************
+
         //[HttpGet]
         //public IEnumerable<Calendario> GetAll()
         //{
@@ -32,60 +45,48 @@ namespace ChamadaWS.Controllers
         //    return _calendarioRepositorio.GetDay(id);
         //}
 
-        [HttpGet]//("{id}", Name = "GetCalendario")]
-        public IActionResult GetById(long id)
-        {
-            var calendario = _calendarioRepositorio.GetDay(id);
-            if (calendario == null)
-            {
-                return NotFound();
-            }
-            return new ObjectResult(calendario);
-        }
+        //[HttpPost]
+        //public IActionResult Create([FromBody]Calendario calendario)
+        //{
+        //    if (calendario == null)
+        //    {
+        //        return BadRequest();
+        //    }
 
+        //    _calendarioRepositorio.Add(calendario);
+        //    return CreatedAtRoute("GetCalendario", new { id = calendario.DataID }, calendario);
+        //}
 
-        [HttpPost]
-        public IActionResult Create([FromBody]Calendario calendario)
-        {
-            if (calendario == null)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public IActionResult Update(long id, [FromBody]Calendario calendario)
+        //{
+        //    if (calendario == null || calendario.DataID != id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _calendarioRepositorio.Add(calendario);
-            return CreatedAtRoute("GetCalendario", new { id = calendario.DataID }, calendario);
-        }
+        //    var _calendario = _calendarioRepositorio.Find(id);
+        //    if (_calendario == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(long id, [FromBody]Calendario calendario)
-        {
-            if (calendario == null || calendario.DataID != id)
-            {
-                return BadRequest();
-            }
+        //    _calendario.DataNome = calendario.DataNome;
+        //    _calendarioRepositorio.Update(_calendario);
+        //    return new NoContentResult();
+        //}
 
-            var _calendario = _calendarioRepositorio.Find(id);
-            if (_calendario == null)
-            {
-                return NotFound();
-            }
+        //[HttpDelete("{id}")]
+        //public IActionResult Delete(long id)
+        //{
+        //    var calendario = _calendarioRepositorio.Find(id);
+        //    if (calendario == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _calendario.DataNome = calendario.DataNome;
-            _calendarioRepositorio.Update(_calendario);
-            return new NoContentResult();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
-        {
-            var calendario = _calendarioRepositorio.Find(id);
-            if (calendario == null)
-            {
-                return NotFound();
-            }
-
-            _calendarioRepositorio.Remove(id);
-            return new NoContentResult();
-        }
+        //    _calendarioRepositorio.Remove(id);
+        //    return new NoContentResult();
+        //}
     }
 }
