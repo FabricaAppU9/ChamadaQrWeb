@@ -9,6 +9,7 @@ namespace Modelo.Cadastros
     {
         [Key]
         public long? QrCodeID { get; set; }
+
         [Required]
         public string Validacao { get; set; }
 

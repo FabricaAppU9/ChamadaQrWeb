@@ -16,8 +16,8 @@ namespace ChamadaWS.Repositorio
             _context = context;
         }
 
-        public Calendario GetDay(DateTime data)
-        {                   
+        public Calendario GetDay(string data)
+        {
             return _context.Calendarios.FirstOrDefault(c => c.DataNome == data);
         }
 

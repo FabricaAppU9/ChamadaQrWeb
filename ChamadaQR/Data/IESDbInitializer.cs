@@ -64,52 +64,68 @@ namespace ChamadaQR.Data
 
 
             //Calendario
-            //if (context.Calendarios.Any())
-            //    return;
+            if (context.Calendarios.Any())
+                return;
 
-            //var calendario = new Calendario[]
-            //{
-            //    new Calendario { DataNome =  }
-            //};
+            var calendario = new Calendario[]
+            {
+                new Calendario { DataNome = "27-10-2018" }
+            };
 
-            //foreach (Calendario c in calendario)
-            //{
-            //    context.Calendarios.Add(c);
-            //}
-            //context.SaveChanges();
+            foreach (Calendario c in calendario)
+            {
+                context.Calendarios.Add(c);
+            }
+            context.SaveChanges();
 
             //Frequencia
-            //if (context.Frequencias.Any())            
-            //    return;
+            if (context.Frequencias.Any())
+                return;
 
-            //var frequencias = new Frequencia[]
-            //{
-            //    new Frequencia { AlunoID = 1, DataID = 1, Presenca = "S" },
-            //    new Frequencia { AlunoID = 2, DataID = 1, Presenca = "S" },
-            //    new Frequencia { AlunoID = 3, DataID = 1, Presenca = "N", Justificativa = "Atestado Medico" },
-            //    new Frequencia { AlunoID = 4, DataID = 1, Presenca = "S" }
-            //};
+            var frequencias = new Frequencia[]
+            {
+                new Frequencia { AlunoID = 1, DataID = 1, Presenca = "S" },
+                new Frequencia { AlunoID = 2, DataID = 1, Presenca = "S" },
+                new Frequencia { AlunoID = 3, DataID = 1, Presenca = "N", Justificativa = "Atestado Medico" },
+                new Frequencia { AlunoID = 4, DataID = 1, Presenca = "S" }
+            };
 
-            //foreach (Frequencia p in frequencias)
-            //{
-            //    context.Frequencias.Add(p);
-            //}
-            //context.SaveChanges();
+            foreach (Frequencia p in frequencias)
+            {
+                context.Frequencias.Add(p);
+            }
+            context.SaveChanges();
 
             //Qrcode
-            //if (context.Qrcodes.Any())
-            //    return;
+            if (context.Qrcodes.Any())
+                return;
 
-            //var qrcodes = new Qrcode[]
-            //{
-            //    new Qrcode(1,"26/10/2018-1-valida")
-            //};
+            var qrcodes = new Qrcode[]
+            {
+                new Qrcode(1,"26/10/2018-1-valida")
+            };
 
-            //foreach (Qrcode q in qrcodes)
-            //{
-            //    context.Qrcodes.Add(q);
-            //}
-            //context.SaveChanges();
+            foreach (Qrcode q in qrcodes)
+            {
+                context.Qrcodes.Add(q);
+            }
+            context.SaveChanges();
+
+            //Unidade
+            if (context.Unidades.Any())
+                return;
+
+            var unidaddes = new Unidade[]
+           {
+                new Unidade { UnidadeNome = "Vila Prudente" },
+                new Unidade { UnidadeNome = "Santo Amaro" },                
+           };
+
+            foreach (Unidade u in unidaddes)
+            {
+                context.Unidades.Add(u);
+            }
+            context.SaveChanges();
         }
     }
 }

@@ -9,12 +9,19 @@ namespace Modelo.Cadastros
         [Key]
         [DisplayName("ID")]
         public long? ProjetoID { get; set; }
+
         [Required]
         [DisplayName("PROJETO")]
         public string ProjetoNome { get; set; }
+
         [Required]
         [DisplayName("ENDERECO")]
         public string Endereco { get; set; }
+
+        //fk
+        [DisplayName("UNIDADE")]
+        public long? UnidadeID { get; set; }
+        public Unidade Unidade { get; set; }
 
         public virtual IEnumerable<Aluno> Alunos { get; set; }
         public virtual IEnumerable<Professor> Professores { get; set; }

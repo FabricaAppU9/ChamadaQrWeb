@@ -13,11 +13,12 @@ namespace Modelo.Cadastros
         [DisplayName("ID")]
         public long? DataID { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
+        ///[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{dd-MM-yyyy}")]
         [DisplayName("DATA")]
         [Required]
-        public DateTime DataNome { get; set; }
+        public string DataNome { get; set; }
+        //public DateTime DataNome { get; set; }
 
         public virtual IEnumerable<Frequencia> Frequencias { get; set; }
     }

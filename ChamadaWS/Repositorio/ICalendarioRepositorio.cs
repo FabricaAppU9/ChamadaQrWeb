@@ -8,7 +8,7 @@ namespace ChamadaWS.Repositorio
 {
     public interface ICalendarioRepositorio
     {
-        Calendario GetDay(DateTime data);
+        Calendario GetDay(string data);
         IEnumerable<Calendario> GetAll();
 
         //Metodos comentados para uso posterior****************************************

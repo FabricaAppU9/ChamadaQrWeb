@@ -23,6 +23,7 @@ namespace Modelo.Cadastros
 
         [DisplayName("PRESENCA")]
         public string Presenca { get; set; }
+
         [DisplayName("JUSTIFICATIVA")]
         public string Justificativa { get; set; }
 

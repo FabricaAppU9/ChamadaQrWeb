@@ -11,8 +11,8 @@ namespace Modelo.Cadastros
         [Key]
         public long? ProfessorID { get; set; }
 
-        [StringLength(10, MinimumLength = 10)]
-        [RegularExpression("([0-9]{10})")]
+        //[StringLength(10, MinimumLength = 10)]
+        //[RegularExpression("([0-9]{10})")]
         [DisplayName("RA")]
         [Required]
         public long Matricula { get; set; }
@@ -26,6 +26,7 @@ namespace Modelo.Cadastros
         public string Status { get; set; }
 
         //fk
+        [DisplayName("PROJETO")]
         public long? ProjetoID { get; set; }
         public Projeto Projeto { get; set; }
 

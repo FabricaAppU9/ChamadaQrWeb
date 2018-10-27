@@ -20,10 +20,10 @@ namespace ChamadaWS.Controllers
             _calendarioRepositorio = calendarioRepositorio;
         }
 
-        [HttpGet("{id}", Name = "GetCalendario")]
-        public IActionResult GetById(long id)
+        [HttpGet("{data}", Name = "GetCalendario")]
+        public IActionResult GetByData(string data)
         {
-            var calendario = _calendarioRepositorio.GetDay(id);
+            var calendario = _calendarioRepositorio.GetDay(data);
             if (calendario == null)
             {
                 return NotFound();
