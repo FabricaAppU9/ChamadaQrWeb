@@ -14,6 +14,7 @@ namespace Modelo.Cadastros
          */
 
         [Key]//pk
+        [DisplayName("ID")]
         public long? AlunoID { get; set; }
 
         //[StringLength(10, MinimumLength = 10)]

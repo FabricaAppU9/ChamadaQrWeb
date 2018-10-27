@@ -10,6 +10,7 @@ namespace Modelo.Cadastros
     public class Unidade
     {      
         [Key]//pk
+        [DisplayName("ID")]
         public long? UnidadeID { get; set; }
       
         [Required]

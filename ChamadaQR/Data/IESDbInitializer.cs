@@ -7,7 +7,7 @@ namespace ChamadaQR.Data
     {
         public static void Initialize(IESContext context)
         {
-            context.Database.EnsureDeleted();
+            //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             //Projetos
@@ -16,7 +16,7 @@ namespace ChamadaQR.Data
 
             var projetos = new Projeto[]
             {
-                new Projeto { ProjetoNome="ChamadaQR", Endereco="Vergueiro"},
+                new Projeto { ProjetoNome="ChamadaQR", Endereco="Vergueiro" },
                 new Projeto { ProjetoNome="Agendamentos", Endereco="Santo Amaro"}
             };
 
@@ -115,13 +115,13 @@ namespace ChamadaQR.Data
             if (context.Unidades.Any())
                 return;
 
-            var unidaddes = new Unidade[]
-           {
-                new Unidade { UnidadeNome = "Vila Prudente" },
-                new Unidade { UnidadeNome = "Santo Amaro" },                
-           };
+            var unidades = new Unidade[]
+            {
+                new Unidade { UnidadeNome = "Santo Amaro", Alias = "SA", Status = "ATIVO"},
+                new Unidade { UnidadeNome = "Vila Prudente", Alias = "VP", Status = "ATIVO"}
+            };
 
-            foreach (Unidade u in unidaddes)
+            foreach (Unidade u in unidades)
             {
                 context.Unidades.Add(u);
             }

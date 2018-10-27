@@ -1,27 +1,31 @@
-﻿@model Modelo.Cadastros.Projeto
+﻿@model Modelo.Cadastros.Unidade
 @{
     Layout = "_LayoutIES";
 }
 
 <div class="card-block">
-    <div class="card-header text-white bg-secondary text-center h1">Alterando um projeto existente</div>
+    <div class="card-header text-white bg-secondary text-center h1">Alterando uma unidade existente</div>
     <div class="card-body">
         <form asp-action="Edit">
-            <input type="hidden" asp-for="ProjetoID" />
+            <input type="hidden" asp-for="UnidadeID" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ProjetoNome" class="control-label"></label>
-                <input asp-for="ProjetoNome" class="form-control" />
-                <span asp-validation-for="ProjetoNome" class="text-danger"></span>
+                <label asp-for="Alias" class="control-label"></label>
+                <input asp-for="Alias" class="form-control" />
+                <span asp-validation-for="Alias" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Endereco" class="control-label"></label>
-                <input asp-for="Endereco" class="form-control" />
-                <span asp-validation-for="Endereco" class="text-danger"></span>
+                <label asp-for="UnidadeNome" class="control-label"></label>
+                <input asp-for="UnidadeNome" class="form-control" />
+                <span asp-validation-for="UnidadeNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control" asp-items="@(new SelectList(@ViewBag.s, "", ""))"></select>
             </div>
             <div class="form-group text-center h3">
-                <input type="submit" value="Atualizar Projeto" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-warning">Retornar à listagem de projetos</a>
+                <input type="submit" value="Atualizar Unidade" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-warning">Retornar à listagem de unidades</a>
             </div>
         </form>
     </div>

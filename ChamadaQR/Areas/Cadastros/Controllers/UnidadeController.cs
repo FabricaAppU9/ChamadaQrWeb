@@ -37,8 +37,8 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
             if (unidade == null)            
                 return NotFound();
 
-            ViewBag.Projetos =
-               new SelectList(_context.Unidades.OrderBy(u => u.UnidadeNome), "UnidadeID", "UnidadeNome", unidade.UnidadeID);
+            //ViewBag.Unidades =
+            //   new SelectList(_context.Unidades.OrderBy(u => u.UnidadeNome), "UnidadeID", "UnidadeNome", unidade.UnidadeID);
 
             ValidaStatus();
 
@@ -96,6 +96,7 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
         //GET: Unidade/Create
         public IActionResult Create()
         {
+            ValidaStatus();
             return View();
         }
 

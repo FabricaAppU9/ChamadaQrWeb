@@ -9,6 +9,7 @@ namespace Modelo.Cadastros
     public class Professor
     {
         [Key]
+        [DisplayName("ID")]
         public long? ProfessorID { get; set; }
 
         //[StringLength(10, MinimumLength = 10)]

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Modelo.Cadastros.Projeto>
+﻿@model IEnumerable<Modelo.Cadastros.Unidade>
 @{
     Layout = "_LayoutIES";
 }
@@ -16,19 +16,22 @@
 }
 
 <div class="card-block">
-    <div class="card-header text-white bg-primary text-center h1">Projetos Cadastrados</div>
+    <div class="card-header text-white bg-primary text-center h1">Unidades Cadastradas</div>
     <div class="card-body">
-        <table id="tabela_projetos">
+        <table id="tabela_unidades">
             <thead>
                 <tr>
                     @*<th>
-                        @Html.DisplayNameFor(model => model.ProjetoID)
-                    </th>*@
+            @Html.DisplayNameFor(model => model.ProjetoID)
+        </th>*@
                     <th>
-                        @Html.DisplayNameFor(model => model.ProjetoNome)
+                        @Html.DisplayNameFor(model => model.Alias)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Endereco)
+                        @Html.DisplayNameFor(model => model.UnidadeNome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
                     </th>
                     <th></th>
                 </tr>
@@ -36,28 +39,31 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.ProjetoID)
-                        </td>*@
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProjetoNome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Endereco)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.ProjetoID">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.ProjetoID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ProjetoID">Delete</a>
-                        </td>
-                    </tr>
+                <tr>
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.ProjetoID)
+        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Alias)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnidadeNome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.UnidadeID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.UnidadeID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.UnidadeID">Delete</a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
     </div>
     <div class="card-footer bg-success text-center">
-        <a asp-action="Create" class="btn-success">Cadastrar um novo projeto</a>
+        <a asp-action="Create" class="btn-success">Cadastrar uma nova unidade</a>
     </div>
 </div>
 
@@ -68,7 +74,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#tabela_projetos').DataTable({
+            $('#tabela_unidades').DataTable({
                 "order": [[1, "asc"]]
             });
         });

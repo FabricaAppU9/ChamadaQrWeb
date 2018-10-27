@@ -9,6 +9,7 @@ namespace Modelo.Cadastros
     public class Frequencia
     {
         [Key]
+        [DisplayName("ID")]
         public long? FrequenciaID { get; set; }
 
         //fk
