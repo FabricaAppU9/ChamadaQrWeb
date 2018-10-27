@@ -36,7 +36,12 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
 
             if (unidade == null)            
                 return NotFound();
-            
+
+            ViewBag.Projetos =
+               new SelectList(_context.Unidades.OrderBy(u => u.UnidadeNome), "UnidadeID", "UnidadeNome", unidade.UnidadeID);
+
+            ValidaStatus();
+
             return View(unidade);
         }
 
@@ -135,6 +140,14 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
         private async Task<bool> UnidadeExists(long? id)
         {
             return await unidadeDAL.ObterUnidadePorId((long)id) != null;
+        }
+
+        private void ValidaStatus()
+        {
+            IList<string> s = new List<string>();
+            s.Add("ATIVO");
+            s.Add("INATIVO");
+            ViewBag.s = s;
         }
     }
 }
