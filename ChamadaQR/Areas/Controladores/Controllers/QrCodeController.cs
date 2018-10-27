@@ -41,7 +41,7 @@ namespace ChamadaQR.Areas.Controladores.Controllers
             timer.Start();
 
             string data = DateTime.Today.ToString("dd/MM/yyyy");
-            data = data + " - " + i + " - valida";
+            data = data + "-" + i + "-valida";
             ViewBag.data = data;
 
             var qrcode = new Qrcode(1,data);

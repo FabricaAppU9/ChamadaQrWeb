@@ -9,7 +9,7 @@ namespace ChamadaWS.Models
     public class Calendario
     {
         [Key]
-        public long? DataID { get; set; }
+        public long DataID { get; set; }
         public string DataNome { get; set; }
     }
 }

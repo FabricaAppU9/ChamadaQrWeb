@@ -9,13 +9,15 @@ namespace Modelo.Cadastros
     public class Frequencia
     {
         [Key]
-        public long? FrequenciaID { get; set; }       
+        public long? FrequenciaID { get; set; }
 
         //fk
+        [DisplayName("ALUNO")]
         public long? AlunoID { get; set; }
         public Aluno Aluno { get; set; }
 
         //fk
+        [DisplayName("DATA")]
         public long? DataID { get; set; }
         public Calendario Calendario { get; set; }
 

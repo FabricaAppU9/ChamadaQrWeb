@@ -126,7 +126,7 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
         public async Task<IActionResult> DeleteConfirmed(long? id)
         {
             var calendario = await calendarioDAL.EliminarCalendarioPorId((long)id);
-            TempData["Message"] = "A Data " + calendario.DataNome.ToUpper() + " foi removida";
+            //TempData["Message"] = "A Data " + calendario.DataNome.ToUpper() + " foi removida";
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

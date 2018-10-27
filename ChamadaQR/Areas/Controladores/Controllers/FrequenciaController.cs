@@ -101,10 +101,10 @@ namespace ChamadaQR.Areas.Controladores.Controllers
         {
             var Alunos = alunoDAL.ObterAlunosClassificadosPorNome().ToList();
             Alunos.Insert(0, new Aluno() { AlunoID = 0, AlunoNome = "Selecione o Aluno" });
-            ViewBag.Alunos = Alunos;
+            ViewBag.Alunos = Alunos;            
 
             var Calendarios = calendarioDAL.ObterCalendariosClassificadosPorNome().ToList();
-            Calendarios.Insert(0, new Calendario() { DataID = 0, DataNome = "Selecione a Data" });
+            //Calendarios.Insert(0, new Calendario() { DataID = 0, DataNome = data });
             ViewBag.Calendarios = Calendarios;
 
             ValidaPresenca();

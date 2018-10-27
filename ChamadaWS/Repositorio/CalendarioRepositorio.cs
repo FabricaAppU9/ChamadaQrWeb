@@ -8,6 +8,7 @@ namespace ChamadaWS.Repositorio
 {
     public class CalendarioRepositorio : ICalendarioRepositorio
     {
+       
         private readonly WSDbContext _context;
 
         public CalendarioRepositorio(WSDbContext context)
@@ -15,14 +16,17 @@ namespace ChamadaWS.Repositorio
             _context = context;
         }
 
-        public Calendario GetDay(long id)
-        {        
-            string data = DateTime.Today.ToString("dd/MM/yyyy");
-            var calendario = _context.Calendarios.FirstOrDefault(c => c.DataNome == data);
-            var pegaID = calendario.DataID;            
-            return _context.Calendarios.FirstOrDefault(c => c.DataID == pegaID);
+        public Calendario GetDay(DateTime data)
+        {                   
+            return _context.Calendarios.FirstOrDefault(c => c.DataNome == data);
         }
-        
+
+        public IEnumerable<Calendario> GetAll()
+        {
+            return _context.Calendarios.ToList();
+        }
+
+
         //Metodos comentados para uso posterior****************************************
 
         //public void Add(Calendario calendario)
@@ -35,12 +39,6 @@ namespace ChamadaWS.Repositorio
         //{
         //    return _context.Calendarios.FirstOrDefault(c => c.DataID == id);
         //}
-
-        //public IEnumerable<Calendario> GetAll()
-        //{
-        //    return _context.Calendarios.ToList();
-        //}
-        
 
         //public void Remove(long id)
         //{

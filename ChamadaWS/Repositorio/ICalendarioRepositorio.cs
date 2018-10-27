@@ -8,11 +8,11 @@ namespace ChamadaWS.Repositorio
 {
     public interface ICalendarioRepositorio
     {
-        Calendario GetDay(long id);
+        Calendario GetDay(DateTime data);
+        IEnumerable<Calendario> GetAll();
 
         //Metodos comentados para uso posterior****************************************
         //void Add(Calendario calendario);
-        //IEnumerable<Calendario> GetAll();
         //Calendario Find(long id);        
         //void Remove(long id);
         //void Update(Calendario calendario);

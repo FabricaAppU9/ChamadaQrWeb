@@ -20,7 +20,7 @@ namespace ChamadaWS.Controllers
             _calendarioRepositorio = calendarioRepositorio;
         }
 
-        [HttpGet]
+        [HttpGet("{id}", Name = "GetCalendario")]
         public IActionResult GetById(long id)
         {
             var calendario = _calendarioRepositorio.GetDay(id);
@@ -31,13 +31,13 @@ namespace ChamadaWS.Controllers
             return new ObjectResult(calendario);
         }
 
-        //Metodos comentados para uso posterior****************************************
+        [HttpGet]
+        public IEnumerable<Calendario> GetAll()
+        {
+            return _calendarioRepositorio.GetAll();
+        }
 
-        //[HttpGet]
-        //public IEnumerable<Calendario> GetAll()
-        //{
-        //    return _calendarioRepositorio.GetAll();
-        //}
+        //Metodos comentados para uso posterior****************************************
 
         //[HttpGet]
         //public IEnumerable<Calendario> GetDay()

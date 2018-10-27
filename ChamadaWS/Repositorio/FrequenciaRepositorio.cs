@@ -21,12 +21,12 @@ namespace ChamadaWS.Repositorio
             _context.SaveChanges();
         }
 
-        public Frequencia Find(long id)
-        {            
-            return _context.Frequencias.FirstOrDefault(p => p.FrequenciaID == id);
-        }
-
         //Metodos comentados para uso posterior****************************************
+        
+        //public Frequencia Find(long id)
+        //{            
+        //    return _context.Frequencias.FirstOrDefault(p => p.FrequenciaID == id);
+        //}
 
         //public IEnumerable<Frequencia> GetAll()
         //{
