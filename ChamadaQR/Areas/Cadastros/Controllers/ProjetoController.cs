@@ -18,12 +18,14 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
     {
         private readonly IESContext _context;
         private readonly ProjetoDAL projetoDAL;
+        private readonly UnidadeDAL unidadeDAL;
 
         //Configuracoes do contexto
         public ProjetoController(IESContext context)
         {
             _context = context;
             projetoDAL = new ProjetoDAL(context);
+            unidadeDAL = new UnidadeDAL(context);
         }
 
         //VisaoPorID
@@ -36,7 +38,10 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
 
             if (projeto == null)            
                 return NotFound();
-            
+
+            ViewBag.Unidades =
+               new SelectList(_context.Unidades.OrderBy(u => u.UnidadeNome), "UnidadeID", "UnidadeNome", projeto.UnidadeID);
+
             return View(projeto);
         }
 
@@ -61,7 +66,7 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
         //POST: Projeto/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("ProjetoID,ProjetoNome,Endereco")] Projeto projeto)
+        public async Task<IActionResult> Edit(long? id, [Bind("ProjetoID,ProjetoNome,Status,UnidadeID")] Projeto projeto)
         {
             if (id != projeto.ProjetoID)            
                 return NotFound();            
@@ -91,13 +96,19 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
         //GET: Projeto/Create
         public IActionResult Create()
         {
+            var Unidades = unidadeDAL.ObterUnidadesClassificadosPorNome().ToList();
+
+            Unidades.Insert(0, new Unidade() { UnidadeID = 0, UnidadeNome = "Selecione a unidade" });
+            ViewBag.Unidades = Unidades;
+
+            ValidaStatus();
             return View();
         }
 
         //POST: Projeto/Create        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProjetoNome,Endereco")] Projeto projeto)
+        public async Task<IActionResult> Create([Bind("ProjetoNome,Status,UnidadeID")] Projeto projeto)
         {
             try
             {
@@ -135,6 +146,14 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
         private async Task<bool> ProjetoExists(long? id)
         {
             return await projetoDAL.ObterProjetoPorId((long)id) != null;
+        }
+
+        private void ValidaStatus()
+        {
+            IList<string> s = new List<string>();
+            s.Add("DESENVOLVIMENTO");
+            s.Add("FINALIZADO");
+            ViewBag.s = s;
         }
     }
 }

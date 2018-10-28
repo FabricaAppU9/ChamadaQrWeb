@@ -14,7 +14,7 @@ namespace Modelo.Cadastros
         public long? UnidadeID { get; set; }
       
         [Required]
-        [DisplayName("ENDERECO")]
+        [DisplayName("UNIDADE")]
         public string UnidadeNome { get; set; }
 
         [Required]

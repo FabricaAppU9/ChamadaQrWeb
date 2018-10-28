@@ -7,7 +7,7 @@ namespace ChamadaQR.Data
     {
         public static void Initialize(IESContext context)
         {
-            //context.Database.EnsureDeleted();
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             //Projetos
@@ -16,8 +16,8 @@ namespace ChamadaQR.Data
 
             var projetos = new Projeto[]
             {
-                new Projeto { ProjetoNome="ChamadaQR", Endereco="Vergueiro" },
-                new Projeto { ProjetoNome="Agendamentos", Endereco="Santo Amaro"}
+                new Projeto { ProjetoNome="ChamadaQR", UnidadeID = 1 },
+                new Projeto { ProjetoNome="Agendamentos", UnidadeID = 2}
             };
 
             foreach (Projeto p in projetos)

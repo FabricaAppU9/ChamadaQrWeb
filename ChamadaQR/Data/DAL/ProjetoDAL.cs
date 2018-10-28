@@ -20,7 +20,9 @@ namespace ChamadaQR.Data.DAL
         //Obter Classificacao por Nome
         public IQueryable<Projeto> ObterProjetosClassificadosPorNome()
         {
-            return _context.Projetos.OrderBy(b => b.ProjetoNome);
+            //return _context.Alunos.Include(i => i.Projeto).OrderBy(b => b.AlunoNome);
+            return _context.Projetos.Include(p => p.Unidade).OrderBy(p => p.ProjetoNome);
+            //return _context.Projetos.OrderBy(b => b.ProjetoNome);
         }
 
         //Obter Classificacao por ID

@@ -67,7 +67,7 @@ namespace ChamadaQR.Migrations
                     ProjetoID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ProjetoNome = table.Column<string>(nullable: false),
-                    Endereco = table.Column<string>(nullable: false)
+                    Unidade = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

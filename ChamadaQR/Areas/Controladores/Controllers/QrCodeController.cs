@@ -40,7 +40,7 @@ namespace ChamadaQR.Areas.Controladores.Controllers
             Timer timer = new Timer();
             timer.Start();
 
-            string data = DateTime.Today.ToString("dd/MM/yyyy");
+            string data = DateTime.Today.ToString("dd-MM-yyyy");
             data = data + "-" + i + "-valida";
             ViewBag.data = data;
 

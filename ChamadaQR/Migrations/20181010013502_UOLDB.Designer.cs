@@ -263,7 +263,7 @@ namespace ChamadaQR.Migrations
                     b.Property<long?>("ProjetoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Endereco")
+                    b.Property<string>("Unidade")
                         .IsRequired();
 
                     b.Property<string>("ProjetoNome")

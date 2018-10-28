@@ -15,10 +15,10 @@ namespace Modelo.Cadastros
         public string ProjetoNome { get; set; }
 
         [Required]
-        [DisplayName("ENDERECO")]
-        public string Endereco { get; set; }
+        [DisplayName("STATUS")]
+        public string Status { get; set; } 
 
-        //fk
+        //fk   
         [DisplayName("UNIDADE")]
         public long? UnidadeID { get; set; }
         public Unidade Unidade { get; set; }
