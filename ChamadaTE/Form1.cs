@@ -52,6 +52,13 @@ namespace ChamadaTE
                 "Pwd=@2018root; " +
                 "SslMode=none;";
 
+            string uninove = "Server=chamadaqr-db.mysql.database.azure.com;" +
+                " Port=3306;" +
+                "Database=chamadadbu9;" +
+                "Uid=chamada-adm@chamadaqr-db;" +
+                "Pwd=@U92018!;" +
+                "SslMode=none;";
+
             //Variavel de ambiente - MYSQLCONNSTR_localdb
             //Armaznamento do mysql - d:\home\data\mysql
             //Localizacao do log - d:\home\logfiles\mysql
@@ -60,8 +67,9 @@ namespace ChamadaTE
             MySqlConnection con1 = new MySqlConnection(conStrMsql);
             SqlConnection con2 = new SqlConnection(conStrSqlServer);
             MySqlConnection con3 = new MySqlConnection(conStrMsqlAzure);
+            MySqlConnection con4 = new MySqlConnection(uninove);
 
-            var mycon = con3;
+            var mycon = con4;
 
             try
             {

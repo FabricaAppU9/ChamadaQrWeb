@@ -11,24 +11,24 @@ namespace ChamadaQR.Data
         //Corresponde a classe AlunoDBContext do ChamdaSW
         public IESContext(DbContextOptions<IESContext> options) : base(options){}
 
-        public DbSet<Aluno> Alunos { get; set; }
-        public DbSet<Qrcode> Qrcodes { get; set; }
         public DbSet<Projeto> Projetos { get; set; }
-        public DbSet<Unidade> Unidades { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Professor> Professores { get; set; }
         public DbSet<Calendario> Calendarios { get; set; }
         public DbSet<Frequencia> Frequencias { get; set; }
+        public DbSet<Qrcode> Qrcodes { get; set; }
+        public DbSet<Unidade> Unidades { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Aluno>().ToTable("Aluno");
-            modelBuilder.Entity<Qrcode>().ToTable("Qrcode");
-            modelBuilder.Entity<Unidade>().ToTable("Unidade");
             modelBuilder.Entity<Projeto>().ToTable("Projeto");
+            modelBuilder.Entity<Aluno>().ToTable("Aluno");
             modelBuilder.Entity<Professor>().ToTable("Professor");
             modelBuilder.Entity<Calendario>().ToTable("Calendario");
             modelBuilder.Entity<Frequencia>().ToTable("Frequencia");
+            modelBuilder.Entity<Qrcode>().ToTable("Qrcode");
+            modelBuilder.Entity<Unidade>().ToTable("Unidade");
         }
         
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

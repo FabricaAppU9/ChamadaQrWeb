@@ -16,8 +16,7 @@ namespace ChamadaQR.Data
 
             var projetos = new Projeto[]
             {
-                new Projeto { ProjetoNome="ChamadaQR", UnidadeID = 1 },
-                new Projeto { ProjetoNome="Agendamentos", UnidadeID = 2}
+                new Projeto { ProjetoNome="ChamadaQR", Status="DESENVOLVIMENTO", UnidadeID = 1 }                
             };
 
             foreach (Projeto p in projetos)
@@ -32,10 +31,7 @@ namespace ChamadaQR.Data
 
             var alunos = new Aluno[]
             {
-                new Aluno { Matricula = 2515201261, AlunoNome="Primeiro Aluno", Status ="ATIVO", ProjetoID = 1 },
-                new Aluno { Matricula = 2515201262, AlunoNome="Segundo Aluno", Status ="ATIVO", ProjetoID = 1 },
-                new Aluno { Matricula = 2515201263, AlunoNome="Terceiro Aluno", Status ="ATIVO", ProjetoID = 2 },
-                new Aluno { Matricula = 2515201264, AlunoNome="Quarto Aluno", Status ="ATIVO", ProjetoID = 2 }
+                new Aluno { Matricula = 2515201261, AlunoNome="Primeiro Aluno", Status ="ATIVO", ProjetoID = 1 }                
             };
         
             foreach (Aluno a in alunos)
@@ -44,16 +40,13 @@ namespace ChamadaQR.Data
             }
             context.SaveChanges();
 
-
             //Professor
             if (context.Professores.Any())            
                 return;            
 
             var professor = new Professor[]
             {
-                new Professor { Matricula = 2515201261, ProfessorNome="Primeiro Professor", Status ="ATIVO", ProjetoID = 1 },
-                new Professor { Matricula = 2515201262, ProfessorNome="Segundo Professor", Status ="ATIVO", ProjetoID = 2 }
-                
+                new Professor { Matricula = 2515201261, ProfessorNome="Primeiro Professor", Status ="ATIVO", ProjetoID = 1 }                                
             };
 
             foreach (Professor a in professor)
@@ -62,14 +55,13 @@ namespace ChamadaQR.Data
             }
             context.SaveChanges();
 
-
             //Calendario
             if (context.Calendarios.Any())
                 return;
 
             var calendario = new Calendario[]
             {
-                new Calendario { DataNome = "27-10-2018" }
+                new Calendario { DataNome = "20-10-2018" }
             };
 
             foreach (Calendario c in calendario)
@@ -84,11 +76,8 @@ namespace ChamadaQR.Data
 
             var frequencias = new Frequencia[]
             {
-                new Frequencia { AlunoID = 1, DataID = 1, Presenca = "S" },
-                new Frequencia { AlunoID = 2, DataID = 1, Presenca = "S" },
-                new Frequencia { AlunoID = 3, DataID = 1, Presenca = "N", Justificativa = "Atestado Medico" },
-                new Frequencia { AlunoID = 4, DataID = 1, Presenca = "S" }
-            };
+                new Frequencia { AlunoID = 1, DataID = 1, Presenca = "S" }
+             };
 
             foreach (Frequencia p in frequencias)
             {
@@ -102,7 +91,7 @@ namespace ChamadaQR.Data
 
             var qrcodes = new Qrcode[]
             {
-                new Qrcode(1,"26/10/2018-1-valida")
+                new Qrcode(1,"28-10-2018-1-valida")
             };
 
             foreach (Qrcode q in qrcodes)
@@ -117,8 +106,7 @@ namespace ChamadaQR.Data
 
             var unidades = new Unidade[]
             {
-                new Unidade { UnidadeNome = "Santo Amaro", Alias = "SA", Status = "ATIVO"},
-                new Unidade { UnidadeNome = "Vila Prudente", Alias = "VP", Status = "ATIVO"}
+                new Unidade { UnidadeNome = "Santo Amaro", Alias = "SA", Status = "ATIVO"}               
             };
 
             foreach (Unidade u in unidades)
