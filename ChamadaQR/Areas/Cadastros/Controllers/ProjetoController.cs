@@ -42,6 +42,8 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
             ViewBag.Unidades =
                new SelectList(_context.Unidades.OrderBy(u => u.UnidadeNome), "UnidadeID", "UnidadeNome", projeto.UnidadeID);
 
+            ValidaStatus();
+
             return View(projeto);
         }
 
@@ -66,7 +68,7 @@ namespace ChamadaQR.Areas.Cadastros.Controllers
         //POST: Projeto/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("ProjetoID,ProjetoNome,Status,UnidadeID")] Projeto projeto)
+        public async Task<IActionResult> Edit(long? id, [Bind("ProjetoID,ProjetoNome,UnidadeID,Status")] Projeto projeto)
         {
             if (id != projeto.ProjetoID)            
                 return NotFound();            

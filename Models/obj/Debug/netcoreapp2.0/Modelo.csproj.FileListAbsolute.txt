@@ -33,3 +33,4 @@ C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.Assembly
 C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.AssemblyInfo.cs
 C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.dll
 C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.pdb
+C:\Users\evert\Desktop\FABRICAGIT\Models\obj\Debug\netcoreapp2.0\Modelo.csprojAssemblyReference.cache
