@@ -21,17 +21,17 @@ namespace ChamadaWS.Repositorio
             _context.SaveChanges();
         }
 
-        //Metodos comentados para uso posterior****************************************
-        
-        //public Frequencia Find(long id)
-        //{            
-        //    return _context.Frequencias.FirstOrDefault(p => p.FrequenciaID == id);
-        //}
+        public Frequencia Find(long id)
+        {
+            return _context.Frequencias.FirstOrDefault(p => p.FrequenciaID == id);
+        }
 
-        //public IEnumerable<Frequencia> GetAll()
-        //{
-        //    return _context.Frequencias.ToList();
-        //}
+        public IEnumerable<Frequencia> GetAll()
+        {
+            return _context.Frequencias.ToList();
+        }
+        
+        //Metodos comentados para uso posterior****************************************
 
         //public void Remove(long id)
         //{

@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ChamadaWS.Models;
 using ChamadaWS.Repositorio;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChamadaWS.Controllers
 {
-    [Produces("application/json")]
     [Route("api/[controller]")]
-    public class FrequenciaController : Controller
+    public class FrequenciaController : ControllerBase
     {
         private readonly IFrequenciaRepositorio _frequenciaRepositorio;
 
@@ -20,26 +15,37 @@ namespace ChamadaWS.Controllers
             _frequenciaRepositorio = frequenciaRepositorio;
         }
 
-
         [HttpPost]
-        public IActionResult Create([FromBody]Frequencia frequencia)
+        public IActionResult Create([FromBody]FrequenciaUpload model)
         {
+            if (ModelState.IsValid)
+            {
+                var frequencia = model.ToFrequencia();
+                _frequenciaRepositorio.Add(frequencia);
+                var uri = Url.Action("GetById", new { id = frequencia.FrequenciaID });
+                return Created(uri, frequencia);                
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(long id)
+        {
+            var frequencia = _frequenciaRepositorio.Find(id);
             if (frequencia == null)
             {
-                return BadRequest();
+                return NotFound();
             }
-
-            _frequenciaRepositorio.Add(frequencia);
-            return CreatedAtRoute("GetFrequencia", new { id = frequencia.FrequenciaID }, frequencia);
+            return new ObjectResult(frequencia);
         }
 
         //Metodos comentados para uso posterior****************************************
 
-        //[HttpGet]
-        //public IEnumerable<Frequencia> GetAll()
-        //{
-        //    return _frequenciaRepositorio.GetAll();
-        //}
+        [HttpGet]
+        public IEnumerable<Frequencia> GetAll()
+        {
+            return _frequenciaRepositorio.GetAll();
+        }
 
         //[HttpPut("{id}")]
         //public IActionResult Update(long id,[FromBody]Frequencia frequencia)
@@ -59,18 +65,6 @@ namespace ChamadaWS.Controllers
         //    _frequenciaRepositorio.Update(_frequencia);
         //    return new NoContentResult();
         //}
-
-        //[HttpGet("{id}", Name="GetFrequencia")]
-        //public IActionResult GetById(long id)
-        //{
-        //    var frequencia = _frequenciaRepositorio.Find(id);
-        //    if (frequencia == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return new ObjectResult(frequencia);
-        //}
-
 
         //[HttpDelete("{id}")]
         //public IActionResult Delete(long id)

@@ -9,10 +9,10 @@ namespace ChamadaWS.Repositorio
     public interface IFrequenciaRepositorio
     {
         void Add(Frequencia frequencia);
+        Frequencia Find(long id);
+        IEnumerable<Frequencia> GetAll();
         
         //Metodos comentados para uso posterior****************************************
-        //IEnumerable<Frequencia> GetAll();
-        //Frequencia Find(long id);
         //void Remove(long id);
         //void Update(Frequencia frequencia);
     }
